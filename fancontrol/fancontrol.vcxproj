@@ -13,6 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{45F7E4D3-AF42-4594-80E1-099D3FCE3F37}</ProjectGuid>
     <RootNamespace>fancontrol</RootNamespace>
+    <ProjectName>TPFanControl</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -88,7 +89,7 @@
       <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\Release/TPFanControl.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <ProgramDatabaseFile>.\Release/fancontrol.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>.\Release/TPFanControl.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <HeapReserveSize>16384</HeapReserveSize>
       <HeapCommitSize>16384</HeapCommitSize>
@@ -98,6 +99,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
