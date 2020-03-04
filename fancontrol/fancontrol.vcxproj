@@ -72,7 +72,7 @@
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <AdditionalOptions> /J</AdditionalOptions>
+      <AdditionalOptions> /J /source-charset:utf-8</AdditionalOptions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>_prec.h</PrecompiledHeaderFile>
       <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
@@ -132,7 +132,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\Debug/fancontrol.exe</OutputFile>
+      <OutputFile>.\Debug/TPFanControl.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\Debug/fancontrol.pdb</ProgramDatabaseFile>

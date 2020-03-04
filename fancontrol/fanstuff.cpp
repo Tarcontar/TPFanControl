@@ -1,4 +1,3 @@
-
 // --------------------------------------------------------------
 //
 //  Thinkpad Fan Control
@@ -47,9 +46,12 @@
 int 
 FANCONTROL::HandleData(void)
 {
-	char obuf[256]= "", obuf2[128]="", 
-		 templist[256]= "", templist2[512], 
-		 manlevel[16]= "", title2[128]= "";
+	char obuf[256] = "";
+	char obuf2[128] = "";
+	char templist[256] = "";
+	char templist2[512] = "";
+	char manlevel[16] = "";
+	char title2[128]= "";
 	int i, maxtemp, imaxtemp, ok= 0;
 
 
@@ -155,16 +157,13 @@ FANCONTROL::HandleData(void)
 		sprintf_s(obuf2,sizeof(obuf2), "%d RPM", this->fanspeed);
 
 	::SetDlgItemText(this->hwndDialog, 8102, obuf2);
-
-
-
+	   
 	// display temperature list
-	if(Fahrenheit)
-		sprintf_s(obuf2,sizeof(obuf2), "%d°F", this->MaxTemp* 9 /5 +32);
+	if (Fahrenheit)
+		sprintf_s(obuf2, sizeof(obuf2), "%d°F", this->MaxTemp * 9 / 5 + 32);
 	else
-		sprintf_s(obuf2,sizeof(obuf2), "%d°C", this->MaxTemp);
+		sprintf_s(obuf2, sizeof(obuf2), "%d°C", this->MaxTemp);
 	::SetDlgItemText(this->hwndDialog, 8103, obuf2);
-
 
 	strcpy_s(templist2,sizeof(templist2), "");
 	for (i= 0; i<12; i++) {
@@ -389,13 +388,19 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 		::Beep(this->FanBeepFreq, this->FanBeepDura);
 
 	this->CurrentDateTimeLocalized(datebuf, sizeof(datebuf));
-
-	
+		
 	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "%s: Set fan control to 0x%02x, ", source, fanctrl);
+
 	if (this->IndSmartLevel == 1 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Mode 2, ");
+	{
+		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 2, ");
+	}
+
 	if (this->IndSmartLevel == 0 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Mode 1, ");
+	{
+		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 1, ");
+	}
+
 	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Result: ");
 
 	if (this->ActiveMode && !this->FinalSeen) {
