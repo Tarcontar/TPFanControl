@@ -17,7 +17,7 @@ if MaxTemp < 50 then
     Set mode to "BIOS";
     Sleep 1 sec;
     Set mode to "Manual: Fan 1";
-    Sleep 1 sec;
+    Sleep 5 sec;
     Set mode to "Manual: Fan 0";
 }
 ```    
