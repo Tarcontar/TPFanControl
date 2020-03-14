@@ -1,6 +1,6 @@
 # TPFanControl
 
-This is a fork of https://github.com/cjbdev/TPFanControl. I've added a small hack to allow TPFanControl to turn off both fans when temperature drops below 50C. This has only been tested on my Lenovo ThinkPad P53 notebook. A working release build is included in releases area, but it will need to be run each boot, or added to run at startup. 
+This is a fork of https://github.com/cjbdev/TPFanControl. I've added a small fix to allow TPFanControl to turn off both fans when temperature drops below 50C. This has only been tested on my Lenovo ThinkPad P53 notebook. A working release build is included in releases area, but it will need to be run each boot, or added to run at startup. 
 
 I use Visual Studio 2019 to build the project, earlier/later versions may work as well but are not tested.
 
