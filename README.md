@@ -21,7 +21,7 @@ if MaxTemp < 50 then
     Set mode to "Manual: Fan 0";
 }
 ```    
-Then notebook remains silent while "ManModeExit" temperature is reached (see TPFanControl.ini config file). TPFanControl activates Smart profile which cools system temperature down to 50C, and the loop repeats.
+Then notebook remains silent while "ManModeExit" temperature is reached (see TPFanControl.ini config file). After that TPFanControl activates Smart profile which cools system temperature down to 50C, and the loop repeats.
 
 This solution is meant to be a temporary fix while Lenovo fixes bugs in Thermal control code in BIOS/Lenovo Windows drivers.
 
