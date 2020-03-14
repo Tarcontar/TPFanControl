@@ -10,14 +10,16 @@ https://forums.lenovo.com/t5/ThinkPad-P-and-W-Series-Mobile/P53-CPU-power-manage
 
 What I noticed is that when temperature goes below 50C if I set "Manual: Fan 0" mode in TPFanControl, left fan (responsible for GPU) often continues to work. But if I switch mode to "BIOS" for a short period of time, then set "Manual: Fan 1" mode, and then "Manual: Fan 0" mode, fans become silent.
 
-So I developed a fix to automate this procedure in TPFanControl as doing this manually every time was quite annoying. At this point I did not dig deep into the low level code that works with I/O ports. But instead developed a quick fix that works a following (in pseudo-code):
+So I developed a fix to automate this procedure in TPFanControl as doing this manually every time was quite annoying. At this point I did not dig deep into the low level code that works with I/O ports. But instead developed a quick fix that works as following (in pseudo-code):
 ```
 if MaxTemp < 50 then
+{
     Set mode to "BIOS";
     Sleep 1 sec;
     Set mode to "Manual: Fan 1";
     Sleep 1 sec;
     Set mode to "Manual: Fan 0";
+}
 ```    
 Then notebook remains silent while "ManModeExit" temperature is reached (see TPFanControl.ini config file). TPFanControl activates Smart profile which cools system temperature down to 50C, and the loop repeats.
 
