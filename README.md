@@ -34,12 +34,9 @@ To avoid errors, either install [tvicport](https://www.entechtaiwan.com/dev/port
 
 * Copy TPFanControl.exe and TPFanControl.ini from this repository releases area over the installed files.
 
+* Stop "Lenovo Intelligent Thermal Solution" service and set to "Startup type: Disabled". At some point I noticed GPU fan is spinning like crazy despite max sensors temperature being below 50C as reported by TPFanControl. After I stopped "Lenovo Intelligent Thermal Solution" service, left fan's speed immediately went down. So "Lenovo Intelligent Thermal Solution" can interfere with TPFanControl. 
 
-The following steps may not be necessary, but you can try them in case something does not work as expected:
-
-* Stop "Lenovo Intelligent Thermal Solution" service and set to "Startup type: Disabled". At some point I noticed GPU fan is spinning like crazy despite max sensors temperature being below 50C as reported by TPFanControl. After I stopped "Lenovo Intelligent Thermal Solution" service, left fan's speed immediately went down. So "Lenovo Intelligent Thermal Solution" can interfere with TPFanControl. UPD: I noticed that after Windows 10 update Lenovo service is running, and fan controlling with TPFanControl works fine. So probably this step is not needed.
-
-* I've also uninstalled "Lenovo Intelligent Thermal Solution" drivers. After you run Thermal Solution installer from Lenovo website, see where it unpacks temporary files and run this command from this folder: "dpinst.exe /U LITSDrv.inf" to uninstall Thermal Solution drivers.
+* I've also uninstalled "Lenovo Intelligent Thermal Solution" drivers. After you run Thermal Solution installer from Lenovo website, see where it unpacks temporary files and run this command from this folder: "dpinst.exe /U LITSDrv.inf" to uninstall Thermal Solution drivers. Not sure if this step is necessary.
 
 ## Running at startup
 
