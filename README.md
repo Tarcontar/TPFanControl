@@ -8,7 +8,7 @@ I use Visual Studio 2019 to build the project, earlier/later versions may work a
 As you probably know, Lenovo completely screwed up fan controlling code on Lenovo ThinkPad P53. There is a bug in either BIOS or Lenovo Windows drivers which results in a very long delay between a temperature event and the fan speedup or slowdown. Effectively, the fans follow a temperature that was actual a long time ago. Also on my machine fans do not turn off completely even after temperature goes below 50C. And I want my P53 notebook to be completely silent under no load. See this thread on Lenovo Community forum for details:
 https://forums.lenovo.com/t5/ThinkPad-P-and-W-Series-Mobile/P53-CPU-power-management-and-cooling-bugs/td-p/4596511.
 
-What I noticed is that when temperature goes below 50C if I set "Manual: Fan 0" mode in TPFanControl, left fan continues to work. But if I switch mode to "BIOS" for a short period of time, then set "Manual: Fan 1" mode, and then "Manual: Fan 0" mode, fans become silent.
+What I noticed is that when temperature goes below 50C if I set "Manual: Fan 0" mode in TPFanControl, left fan (responsible for GPU) continues to work. But if I switch mode to "BIOS" for a short period of time, then set "Manual: Fan 1" mode, and then "Manual: Fan 0" mode, fans become silent.
 
 So I developed a fix to automate this procedure in TPFanControl as doing this manually every time was quite annoying. At this point I did not dig deep into the low level code that works with I/O ports. But instead developed a quick fix that works a following (in pseudo-code):
 ```
