@@ -799,7 +799,15 @@ ULONG FANCONTROL::DlgProc(HWND hwnd, ULONG msg, WPARAM mp1, LPARAM mp2)
             break;
 
         case WM_TIMER:
-            if (this->MaxTemp <= 50 && this->CurrentModeFromDialog() != 3)
+            if (this->MaxTemp > 50 && this->MaxTemp <= 55 && this->CurrentModeFromDialog() != 3)
+            {
+                //
+                // Switch to BIOS mode.
+                //
+                this->ModeToDialog(1);
+                ::PostMessage(this->hwndDialog, WM__GETDATA, 0, 0);
+            }
+            else if (this->MaxTemp <= 50 && this->CurrentModeFromDialog() != 3)
             {
                 //
                 // NOTE: Small hack for Lenovo ThinkPad P53:
@@ -820,8 +828,12 @@ ULONG FANCONTROL::DlgProc(HWND hwnd, ULONG msg, WPARAM mp1, LPARAM mp2)
                 //
                 // Next, switch to "Manual: Fan 1" mode for a short period of time.
                 //
+                ::SetDlgItemText(this->hwndDialog, 8310, "1");
+                this->ModeToDialog(3);
+                ::PostMessage(this->hwndDialog, WM__GETDATA, 0, 0);
+
                 this->SetFan("Manual", 1);
-                ::Sleep(1000);
+                ::Sleep(5000);
 
                 //
                 // Now, switch to "Manual: Fan 0". This should turn off both fans.
