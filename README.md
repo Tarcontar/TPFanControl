@@ -20,10 +20,14 @@ if MaxTemp >= 50 and MaxTemp < 55 then
 
 if MaxTemp < 50 then
 {
-    Set mode to "BIOS";
-    Sleep 1 sec;
+    if mode != "BIOS" then
+    {
+        Set mode to "BIOS";
+        Sleep 30 sec;
+    }
+    
     Set mode to "Manual: Fan 1";
-    Sleep 5 sec;
+    Sleep 10 sec;
     Set mode to "Manual: Fan 0";
 }
 ```    
