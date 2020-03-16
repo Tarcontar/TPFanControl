@@ -822,7 +822,7 @@ ULONG FANCONTROL::DlgProc(HWND hwnd, ULONG msg, WPARAM mp1, LPARAM mp2)
                 if (this->CurrentModeFromDialog() != 1)
                 {
                     this->SetFan("BIOS", 0x80);
-                    ::Sleep(1000);
+                    ::Sleep(30000);
                 }
 
                 //
@@ -833,7 +833,8 @@ ULONG FANCONTROL::DlgProc(HWND hwnd, ULONG msg, WPARAM mp1, LPARAM mp2)
                 ::PostMessage(this->hwndDialog, WM__GETDATA, 0, 0);
 
                 this->SetFan("Manual", 1);
-                ::Sleep(5000);
+                ::Sleep(10000);
+
 
                 //
                 // Now, switch to "Manual: Fan 0". This should turn off both fans.
