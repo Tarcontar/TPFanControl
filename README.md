@@ -12,6 +12,12 @@ What I noticed is that when temperature goes below 50C if I set "Manual: Fan 0" 
 
 So I developed a fix to automate this procedure in TPFanControl as doing this manually every time was quite annoying. At this point I did not dig deep into the low level code that works with I/O ports. But instead developed a quick fix that works as following (in pseudo-code):
 ```
+if MaxTemp >= 50 and MaxTemp < 55 then
+{
+    // Allow BIOS to smoothly cool temperature down below 50C so we can turn off both fans.
+    Set mode to "BIOS";
+}
+
 if MaxTemp < 50 then
 {
     Set mode to "BIOS";
@@ -24,6 +30,9 @@ if MaxTemp < 50 then
 Then notebook remains silent while "ManModeExit" temperature is reached (see TPFanControl.ini config file). After that TPFanControl activates Smart profile which cools system temperature down to 50C, and the loop repeats.
 
 This solution is meant to be a temporary fix while Lenovo fixes bugs in Thermal control code in BIOS/Lenovo Windows drivers.
+
+
+*NOTE:* Sometimes TPFanControl fails to turn off left fan even when temperature is below 50C and with all these fixes. In this case you can just manually switch mode to BIOS, and TPFanControl takes care of the rest.
 
 ## Requirements
 
