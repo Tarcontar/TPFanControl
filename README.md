@@ -32,7 +32,7 @@ To avoid errors, either install [tvicport](https://www.entechtaiwan.com/dev/port
 ## Installation
 * Install TPFanControl from here: https://thinkwiki.de/TPFanControl. I'm using "latest common version, autostart by registry key as setup option, bug fixing, new options: startup in manual mode with manual fan speed adjustable, widget stays on top, optional slim widget. NEW: Hotkey integration." Direct download link to the installer: http://thinkwiki.de/tpfancontrol/tpfc_v062.zip.
 
-* Copy TPFanControl.exe and TPFanControl.ini from this repository releases area over the installed files.
+* Copy TPFanControl.exe and TPFanControl.ini from this repository [releases area](https://github.com/stenri/TPFanControl/releases) over the installed files.
 
 * Stop "Lenovo Intelligent Thermal Solution" service and set to "Startup type: Disabled". At some point I noticed GPU fan is spinning like crazy despite max sensors temperature being below 50C as reported by TPFanControl. After I stopped "Lenovo Intelligent Thermal Solution" service, left fan's speed immediately went down. So "Lenovo Intelligent Thermal Solution" can interfere with TPFanControl. 
 
