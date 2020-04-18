@@ -414,16 +414,25 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
         {
 		    // set new fan level
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
+
+			::Sleep(100);
+
 		    ok= this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
 			::Sleep(300);
 
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
+
+			::Sleep(100);
+
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
 		    // verify completion
 		    ok= this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
+
+			::Sleep(100);
+
 			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
 
             if (this->State.FanCtrl == fanctrl)
