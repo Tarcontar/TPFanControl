@@ -417,18 +417,35 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 			::Sleep(100);
 
-		    ok= this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
-
+			if (fanctrl == 2) {
+				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 1);
+			}
+			else {
+				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
+			}
+			
 			::Sleep(300);
 
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
 
 			::Sleep(100);
 
-			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
+			if (fanctrl < 2) {
+				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 0);
+			}
+			else if (fanctrl == 2) {
+				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 1);
+			}
+			else {
+				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
+			}
+			
 
 		    // verify completion
-		    ok= this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			if (fanctrl != 1) {
+				ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			}
+			
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 
 			::Sleep(100);
