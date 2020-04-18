@@ -2,24 +2,24 @@
   approot.cpp
   dynamicicon.cpp
   fancontrol.cpp
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\fancontrol.cpp(332,2): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(640): message : see declaration of '_itoa'
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\fancontrol.cpp(365,2): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdlib.h(640): message : see declaration of '_itoa'
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\fancontrol.cpp(389,2): warning C4996: 'GetVersionExA': was declared deprecated
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\sysinfoapi.h(387): message : see declaration of 'GetVersionExA'
+e:\documents\tpfancontrol\fancontrol\fancontrol.cpp(332): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(632): note: see declaration of '_itoa'
+e:\documents\tpfancontrol\fancontrol\fancontrol.cpp(365): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdlib.h(632): note: see declaration of '_itoa'
+e:\documents\tpfancontrol\fancontrol\fancontrol.cpp(389): warning C4996: 'GetVersionExA': was declared deprecated
+  c:\program files (x86)\windows kits\8.1\include\um\sysinfoapi.h(433): note: see declaration of 'GetVersionExA'
   fanstuff.cpp
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\fanstuff.cpp(122,84): warning C4474: 'sprintf_s' : too many arguments passed for format string
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\fanstuff.cpp(122,84): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+e:\documents\tpfancontrol\fancontrol\fanstuff.cpp(122): warning C4474: 'sprintf_s' : too many arguments passed for format string
+  e:\documents\tpfancontrol\fancontrol\fanstuff.cpp(122): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
   misc.cpp
   portio.cpp
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\portio.cpp(92,1): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : see declaration of 'sprintf'
+e:\documents\tpfancontrol\fancontrol\portio.cpp(92): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
   SystemTraySDK.cpp
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\SystemTraySDK.cpp(126,1): warning C4996: 'GetVersionExA': was declared deprecated
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\sysinfoapi.h(387): message : see declaration of 'GetVersionExA'
-C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\SystemTraySDK.cpp(174,1): warning C4996: 'GetVersion': was declared deprecated
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\um\sysinfoapi.h(144): message : see declaration of 'GetVersion'
+e:\documents\tpfancontrol\fancontrol\systemtraysdk.cpp(126): warning C4996: 'GetVersionExA': was declared deprecated
+  c:\program files (x86)\windows kits\8.1\include\um\sysinfoapi.h(433): note: see declaration of 'GetVersionExA'
+e:\documents\tpfancontrol\fancontrol\systemtraysdk.cpp(174): warning C4996: 'GetVersion': was declared deprecated
+  c:\program files (x86)\windows kits\8.1\include\um\sysinfoapi.h(110): note: see declaration of 'GetVersion'
   winstuff.cpp
   Generating Code...
-  fancontrol.vcxproj -> C:\Users\conno\Documents\GitHub\TPFanControl\fancontrol\.\Debug\fancontrol.exe
+  fancontrol.vcxproj -> E:\Documents\TPFanControl\fancontrol\.\Debug\fancontrol.exe
