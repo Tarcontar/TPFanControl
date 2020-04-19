@@ -195,8 +195,8 @@ END
 //
 
 1 VERSIONINFO
- FILEVERSION 1,0,0,63
- PRODUCTVERSION 1,0,0,63
+ FILEVERSION 1,0,0,70
+ PRODUCTVERSION 1,0,0,70
  FILEFLAGSMASK 0x8L
 #ifdef _DEBUG
  FILEFLAGS 0x9L
@@ -214,14 +214,14 @@ BEGIN
             VALUE "Comments", "Usage on own risk!"
             VALUE "CompanyName", "troubadix"
             VALUE "FileDescription", "Fan Control Software"
-            VALUE "FileVersion", "1, 0, 0, 63"
+            VALUE "FileVersion", "1, 0, 0, 70"
             VALUE "InternalName", "TPFanControl"
             VALUE "LegalCopyright", "Copyright (C) 2013 by troubadix"
             VALUE "LegalTrademarks", "TPFanControl"
             VALUE "OriginalFilename", "TPFanControl.exe"
             VALUE "PrivateBuild", "Fan Control Software"
             VALUE "ProductName", "TPFanControl"
-            VALUE "ProductVersion", "1, 0, 0, 63"
+            VALUE "ProductVersion", "1, 0, 0, 70"
             VALUE "SpecialBuild", "easy easy setup"
         END
     END

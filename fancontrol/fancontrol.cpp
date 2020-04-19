@@ -360,7 +360,7 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
         if (this->hwndDialog) 
         {
             ::GetWindowText(this->hwndDialog, this->Title, sizeof(this->Title));
-            strcat_s(this->Title,sizeof(this->Title), ".63 multiHotKey");
+            strcat_s(this->Title,sizeof(this->Title), ".70 multiHotKey");
             if (SlimDialog == 0) strcat_s(this->Title,sizeof(this->Title), this->Title3);
             ::SetWindowText(this->hwndDialog, this->Title);
 
