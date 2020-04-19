@@ -1,6 +1,6 @@
 # TPFanControl
 
-This is a fork of https://github.com/cjbdev/TPFanControl. I've added a fix to allow TPFanControl to correctly control both fans FAN1 and FAN2 on Lenovo ThinkPad P53. This has only been tested on my P53 notebook. A working release build is included in releases area, but it will need to be run each boot, or added to run at startup. 
+This is a fork of https://github.com/cjbdev/TPFanControl. I've added a fix to allow TPFanControl to correctly control both fans FAN1 and FAN2 on Lenovo ThinkPad P53. This has only been tested on my P53 notebook. A working release build is included in [releases area](https://github.com/stenri/TPFanControl/releases). 
 
 I use Visual Studio 2019 to build the project, earlier/later versions may work as well but are not tested.
 
@@ -13,7 +13,7 @@ https://forums.lenovo.com/t5/ThinkPad-P-and-W-Series-Mobile/P53-CPU-power-manage
 To avoid errors, either install [tvicport](https://www.entechtaiwan.com/dev/port/index.shtm) manually or install the original version of TPFanControl found [here](https://thinkwiki.de/TPFanControl/), and run the dual-fan version instead of the original version.
 
 ## Installation
-* Install TPFanControl from here: https://thinkwiki.de/TPFanControl. I'm using "latest common version, autostart by registry key as setup option, bug fixing, new options: startup in manual mode with manual fan speed adjustable, widget stays on top, optional slim widget. NEW: Hotkey integration." Direct download link to the installer: http://thinkwiki.de/tpfancontrol/tpfc_v062.zip.
+* Install TPFanControl from here: https://thinkwiki.de/TPFanControl. I'm using "latest common version, autostart by registry key as setup option, bug fixing, new options: startup in manual mode with manual fan speed adjustable, widget stays on top, optional slim widget. NEW: Hotkey integration." Here is a direct download link to the installer: http://thinkwiki.de/tpfancontrol/tpfc_v062.zip.
 
 * Copy TPFanControl.exe and TPFanControl.ini from this repository [releases area](https://github.com/stenri/TPFanControl/releases) over the installed files.
 
@@ -23,14 +23,14 @@ To avoid errors, either install [tvicport](https://www.entechtaiwan.com/dev/port
 
 ## Running at startup
 
-The easiest way to run TPFC at startup is:
+The easiest way to run TPFanControl at startup is:
 
 - Right-click on TPFanControl.exe and select copy
 - Press Windows-r or search for run in the start menu
 - Type `shell:startup` in the run box
 - Right click in the window that opens and select paste shortcut
 
-Note: this won’t start TPFC until you reboot.
+Note: this won’t start TPFanControl until you reboot.
 
 ## License
 
