@@ -1,1 +1,4 @@
-﻿  fancontrol.vcxproj -> E:\Documents\TPFanControl\fancontrol\.\Debug\fancontrol.exe
+﻿  fanstuff.cpp
+e:\documents\tpfancontrol\fancontrol\fanstuff.cpp(122): warning C4474: 'sprintf_s' : too many arguments passed for format string
+  e:\documents\tpfancontrol\fancontrol\fanstuff.cpp(122): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  fancontrol.vcxproj -> E:\Documents\TPFanControl\fancontrol\.\Debug\fancontrol.exe

@@ -383,6 +383,7 @@ int
 FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 {
 	int ok= 0;
+	int speedsvalid = 1;
 	char obuf[256]= "", obuf2[256], datebuf[128];
 
 	if (this->FanBeepFreq && this->FanBeepDura)
@@ -390,13 +391,21 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 	this->CurrentDateTimeLocalized(datebuf, sizeof(datebuf));
 
-	
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "%s: Set fan control to 0x%02x, ", source, fanctrl);
+	// compute speed of second fan
+	int fanctrl2 = fanctrl;
+	if (fanctrl < 2) {
+		fanctrl2 = 0;
+	} else if (fanctrl == 2) {
+		fanctrl2 = 1;
+		fanctrl = 1;
+	}
+
+	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "%s: Set fan controls to 0x%02x, 0x%02x,", source, fanctrl, fanctrl2);
 	if (this->IndSmartLevel == 1 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Mode 2, ");
+		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 2, ");
 	if (this->IndSmartLevel == 0 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Mode 1, ");
-	sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "Result: ");
+		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 1, ");
+	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Result: ");
 
 	if (this->ActiveMode && !this->FinalSeen) {
 		
@@ -417,12 +426,8 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 			::Sleep(100);
 
-			if (fanctrl == 2) {
-				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 1);
-			}
-			else {
-				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
-			}
+		
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 			
 			::Sleep(300);
 
@@ -430,20 +435,17 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 			::Sleep(100);
 
-			if (fanctrl < 2) {
-				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 0);
-			}
-			else if (fanctrl == 2) {
-				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, 1);
-			}
-			else {
-				ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
-			}
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl2);
 			
+			::Sleep(100);
 
-		    // verify completion
-			if (fanctrl != 1) {
-				ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			// validate fan speeds
+			speedsvalid = 1;
+
+			this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+
+			if (this->State.FanCtrl != fanctrl2) {
+				speedsvalid = 0;
 			}
 			
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
@@ -452,15 +454,18 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
 
-            if (this->State.FanCtrl == fanctrl)
-                break;
+			if (this->State.FanCtrl != fanctrl) {
+				speedsvalid = 0;
+			}
 
-            ::Sleep(300);
+			if(speedsvalid) break;
+
+			::Sleep(300);
         }
 
 		this->EcAccess.Unlock();
 
-		if (this->State.FanCtrl==fanctrl) {
+		if (speedsvalid) {
 			sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "OK");
 			ok= true;
 			if (final) 
