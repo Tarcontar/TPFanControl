@@ -421,30 +421,37 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
         for (int i = 0; i < 5; i++)
         {
+
+			speedsvalid = 1;
+
 		    // set new fan level
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 
-			::Sleep(100);
+			::Sleep(300);
 
 		
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
-			
+
 			::Sleep(300);
+
+			// validate speed of fan 1
+			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+
+			if (this->State.FanCtrl != fanctrl) {
+				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN1 WAS 0x%02x),", this->State.FanCtrl);
+				speedsvalid = 0;
+			}
 
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
 
-			::Sleep(100);
+			::Sleep(300);
 
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl2);
 			
-			::Sleep(100);
+			::Sleep(300);
 
-			// validate fan speeds
-			speedsvalid = 1;
-
+			// validate speed of fan 2
 			this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
-
-			
 
 			if (this->State.FanCtrl != fanctrl2) {
 				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN2 WAS 0x%02x),", this->State.FanCtrl);
@@ -452,15 +459,6 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 			}
 			
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
-
-			::Sleep(300);
-
-			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
-
-			if (this->State.FanCtrl != fanctrl) {
-				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN1 WAS 0x%02x),", this->State.FanCtrl);
-				speedsvalid = 0;
-			}
 
 			if(speedsvalid == 1) break;
 
