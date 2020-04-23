@@ -391,19 +391,9 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 	this->CurrentDateTimeLocalized(datebuf, sizeof(datebuf));
 
-	// compute speed of second fan
-	int fanctrl1 = fanctrl;
-	int fanctrl2 = fanctrl;
-	if (fanctrl < 2) {
-		fanctrl2 = 0;
-	} else if (fanctrl == 2) {
-		fanctrl2 = 1;
-		fanctrl1 = 1;
-	}
-
 	char tempstate = 0;
 
-	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "%s: Set fan controls to 0x%02x, 0x%02x,", source, fanctrl1, fanctrl2);
+	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "%s: Set fan control to 0x%02x, ", source, fanctrl);
 	if (this->IndSmartLevel == 1 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
 		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 2, ");
 	if (this->IndSmartLevel == 0 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
@@ -432,14 +422,14 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 			::Sleep(100);
 
 		
-			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl1);
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
 			::Sleep(300);
 
 			// validate speed of fan 1
 			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &tempstate);
 
-			if (tempstate != fanctrl1) {
+			if (tempstate != fanctrl) {
 				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN1 WAS 0x%02x),", tempstate);
 				speedsvalid = 0;
 			}
@@ -448,14 +438,14 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 			::Sleep(100);
 
-			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl2);
+			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 			
 			::Sleep(300);
 
 			// validate speed of fan 2
 			this->ReadByteFromEC(TP_ECOFFSET_FAN, &tempstate);
 
-			if (tempstate != fanctrl2) {
+			if (tempstate != fanctrl) {
 				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN2 WAS 0x%02x),", tempstate);
 				speedsvalid = 0;
 			}
