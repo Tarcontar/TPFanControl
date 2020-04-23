@@ -401,6 +401,8 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 		fanctrl1 = 1;
 	}
 
+	char tempstate = 0;
+
 	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "%s: Set fan controls to 0x%02x, 0x%02x,", source, fanctrl1, fanctrl2);
 	if (this->IndSmartLevel == 1 && this->SmartLevels2[0].temp2 != 0 && source == "Smart")
 		sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Mode 2, ");
@@ -409,7 +411,6 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 	sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "Result: ");
 
 	if (this->ActiveMode && !this->FinalSeen) {
-		
 		int ok_ecaccess = false;
 		for (int i = 0; i < 10; i++){
 			if ( ok_ecaccess = this->EcAccess.Lock(100))break;
@@ -428,7 +429,7 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 		    // set new fan level
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 
-			::Sleep(300);
+			::Sleep(100);
 
 		
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl1);
@@ -436,38 +437,39 @@ FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 			::Sleep(300);
 
 			// validate speed of fan 1
-			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &tempstate);
 
-			if (this->State.FanCtrl != fanctrl1) {
-				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN1 WAS 0x%02x),", this->State.FanCtrl);
+			if (tempstate != fanctrl1) {
+				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN1 WAS 0x%02x),", tempstate);
 				speedsvalid = 0;
 			}
-
+			
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
 
-			::Sleep(300);
+			::Sleep(100);
 
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl2);
 			
 			::Sleep(300);
 
 			// validate speed of fan 2
-			this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
+			this->ReadByteFromEC(TP_ECOFFSET_FAN, &tempstate);
 
-			if (this->State.FanCtrl != fanctrl2) {
-				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN2 WAS 0x%02x),", this->State.FanCtrl);
+			if (tempstate != fanctrl2) {
+				sprintf_s(obuf + strlen(obuf), sizeof(obuf) - strlen(obuf), "(FAN2 WAS 0x%02x),", tempstate);
 				speedsvalid = 0;
 			}
-			
+	
 			ok= this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 
 			if(speedsvalid == 1) break;
 			::Sleep(300);
         }
-		this->State.FanCtrl = fanctrl;
+		
 		this->EcAccess.Unlock();
 
 		if (speedsvalid) {
+			this->State.FanCtrl = fanctrl;
 			sprintf_s(obuf+strlen(obuf),sizeof(obuf)-strlen(obuf), "OK");
 			ok= true;
 			if (final) 
