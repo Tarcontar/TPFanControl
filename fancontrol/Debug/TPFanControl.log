@@ -262,3 +262,46 @@
 
 [4/5/18 3:00:15 PM] On close: Set fan control to 0x80, Result: OK
 [4/5/18 3:00:15 PM] Exiting ProcessDialog
+[05.05.2020 20:06:23] Current Config:
+[05.05.2020 20:06:23]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[05.05.2020 20:06:23]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[05.05.2020 20:06:23]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[05.05.2020 20:06:23]   Levels= 55°C -> 0,  76°C -> 1,  78°C -> 3,  88°C -> 7,  95°C -> 64
+[05.05.2020 20:06:23]   Levels2= 70°C -> 0,  90°C -> 1,  100°C -> 2,  110°C -> 3,  130°C -> 7,  150°C -> 64,  170°C -> 0x80
+[05.05.2020 20:06:23]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 °C
+[05.05.2020 20:06:23]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[05.05.2020 20:06:23]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[05.05.2020 20:06:23]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
+
+[05.05.2020 20:06:23] Windows uptime since boot 104723 sec., SecWinUptime= 0 sec.
+[05.05.2020 20:06:24] Change Mode from BIOS->Smart, recalculate fan speed
+[05.05.2020 20:06:24] Fan: 0x01 / Switch: 50°C (50; 44; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 20:06:24] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[05.05.2020 20:14:18] Current Config:
+[05.05.2020 20:14:18]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[05.05.2020 20:14:18]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[05.05.2020 20:14:18]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[05.05.2020 20:14:18]   Levels= 55°C -> 0,  76°C -> 1,  78°C -> 3,  88°C -> 7,  95°C -> 64
+[05.05.2020 20:14:18]   Levels2= 70°C -> 0,  90°C -> 1,  100°C -> 2,  110°C -> 3,  130°C -> 7,  150°C -> 64,  170°C -> 0x80
+[05.05.2020 20:14:18]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 °C
+[05.05.2020 20:14:18]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[05.05.2020 20:14:18]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[05.05.2020 20:14:18]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
+
+[05.05.2020 20:14:18] Windows uptime since boot 244 sec., SecWinUptime= 0 sec.
+[05.05.2020 20:14:19] failed to read TEMP0 byte from EC
+[05.05.2020 20:14:19] failed to read TEMP0 byte from EC
+[05.05.2020 20:14:20] failed to read TEMP0 byte from EC
+[05.05.2020 20:14:20] Warning: can't read Status, read error count = 0
+[05.05.2020 20:14:20] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 20:14:23] Change Mode from BIOS->Smart, recalculate fan speed
+[05.05.2020 20:14:24] Fan: 0x80 / Switch: 63°C (63; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 20:14:24] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[05.05.2020 20:14:24] failed to read TEMP0 byte from EC
+[05.05.2020 20:14:25] failed to read TEMP0 byte from EC
+[05.05.2020 20:14:29] failed to read TEMP1 byte from EC
+[05.05.2020 20:14:29] failed to read TEMP0 byte from EC
+[05.05.2020 20:15:44] Fan: 0x00 / Switch: 76°C (76; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 20:15:44] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[05.05.2020 20:15:59] Fan: 0x01 / Switch: 54°C (54; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 20:15:59] Smart: Set fan control to 0x00, Mode 1, Result: OK

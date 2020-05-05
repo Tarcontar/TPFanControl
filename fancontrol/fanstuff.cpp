@@ -39,10 +39,8 @@
 //-------------------------------------------------------------------------
 int FANCONTROL::HandleData(void)
 {
-	char obuf[256]= "", obuf2[128]="", 
-		 templist[256]= "", templist2[512], 
-		 manlevel[16]= "", title2[128]= "";
-	int i, maxtemp, imaxtemp, ok= 0;
+	char obuf[256]= "", obuf2[128]="", templist[256]= "", templist2[512], manlevel[16]= "", title2[128]= "";
+	int i, maxtemp, imaxtemp, ok=0;
 
 	//
 	// determine highest temp.
@@ -53,8 +51,7 @@ int FANCONTROL::HandleData(void)
 	sprintf_s(list,sizeof(list), "|%s|", this->IgnoreSensors);
 	for (i= 0; list[i]!='\0'; i++)
 	{
-		if (list[i]==',')	
-			list[i]= '|';
+		if (list[i]==',') list[i]= '|';
 	}
 
 	maxtemp= 0;
@@ -88,8 +85,8 @@ int FANCONTROL::HandleData(void)
 	//
 
 	// title string (for minimized window)
-	if(Fahrenheit) sprintf_s(title2,sizeof(title2), "%d°F", this->MaxTemp* 9/5 +32);
-	else sprintf_s(title2,sizeof(title2), "%d°C", this->MaxTemp);
+	if(Fahrenheit) sprintf_s(title2, sizeof(title2), "%d°F", this->MaxTemp* 9/5 +32);
+	else sprintf_s(title2, sizeof(title2), "%d°C", this->MaxTemp);
 
 	// display fan state
 	int fanctrl= this->State.FanCtrl;
@@ -279,11 +276,10 @@ int FANCONTROL::HandleData(void)
 	}
 
 	this->PreviousMode= this->CurrentMode;
-	if (this->CurrentMode == 3 && this->MaxTemp > 75) this->CurrentMode = 2; //hello
+	if (this->CurrentMode == 3 && this->MaxTemp > 75) this->CurrentMode = 2;
 
 	return ok;
 }
-
 
 
 //-------------------------------------------------------------------------
@@ -344,7 +340,6 @@ int FANCONTROL::SmartControl(void)
 
 	return ok;
 }
-
 
 
 //-------------------------------------------------------------------------
@@ -512,16 +507,15 @@ int FANCONTROL::ReadEcStatus(FCSTATE *pfcstate)
 
 //	setzero(pfcstate, sizeof(*pfcstate)); //Änderung // wg. fanspeed transient zero
 
-	
 	// reading from the EC seems to yield erratic results at times (probably
 	// due to collision with other drivers reading from the port).  So try
-	// up to three times to read two samples which look oka and have matching
+	// up to three times to read two samples which look ok and have matching
 	// value
 	
 	int ok_ecaccess = false;
 	for (int i = 0; i < 10; i++)
 	{
-		if ( ok_ecaccess = this->EcAccess.Lock(100))break;
+		if (ok_ecaccess = this->EcAccess.Lock(100))break;
 		else ::Sleep(100);
 	}
 	
@@ -570,12 +564,12 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 	int i, idxtemp, ok;
 //	pfcstate->FanSpeedLo= 0;
 //	pfcstate->FanSpeedHi= 0;
-	pfcstate->FanCtrl= -1;
+	pfcstate->FanCtrl = -1;
 	memset(pfcstate->Sensors, 0, sizeof(pfcstate->Sensors));
 
-	ok= ReadByteFromEC(TP_ECOFFSET_FAN, &pfcstate->FanCtrl);
+	ok = ReadByteFromEC(TP_ECOFFSET_FAN, &pfcstate->FanCtrl);
 
-	if (ok) ok= ReadByteFromEC(TP_ECOFFSET_FANSPEED, &pfcstate->FanSpeedLo);
+	if (ok) ok = ReadByteFromEC(TP_ECOFFSET_FANSPEED, &pfcstate->FanSpeedLo);
 	if (!ok) this->Trace("failed to read FanSpeedLowByte from EC");
 
 	if (ok) ok = ReadByteFromEC(TP_ECOFFSET_FANSPEED+1, &pfcstate->FanSpeedHi);
@@ -584,24 +578,24 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 	if (!this->UseTWR)
 	{
 		idxtemp= 0;
-		for (i= 0; i<8 && ok; i++)
+		for (i= 0; i < 8 && ok; i++)
 		{	// temp sensors 0x78 - 0x7f
-			ok= ReadByteFromEC(TP_ECOFFSET_TEMP0+i, &pfcstate->Sensors[idxtemp]);
+			ok = ReadByteFromEC(TP_ECOFFSET_TEMP0+i, &pfcstate->Sensors[idxtemp]);
 			if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
 			if (!ok) this->Trace("failed to read TEMP0 byte from EC");
-			pfcstate->SensorAddr[idxtemp]= TP_ECOFFSET_TEMP0+i;
-			pfcstate->SensorName[idxtemp]= this->gSensorNames[idxtemp];
+			pfcstate->SensorAddr[idxtemp] = TP_ECOFFSET_TEMP0+i;
+			pfcstate->SensorName[idxtemp] = this->gSensorNames[idxtemp];
 			idxtemp++;
 		}
 
-		for (i= 0; i<4 && ok; i++)
+		for (i= 0; i < 4 && ok; i++)
 		{	// temp sensors 0xC0 - 0xC4
-			pfcstate->SensorAddr[idxtemp]= TP_ECOFFSET_TEMP1+i;
-			pfcstate->SensorName[idxtemp]= "n/a";
+			pfcstate->SensorAddr[idxtemp] = TP_ECOFFSET_TEMP1+i;
+			pfcstate->SensorName[idxtemp] = "n/a";
 			if (!this->NoExtSensor)
 			{
 				pfcstate->SensorName[idxtemp]= this->gSensorNames[idxtemp];
-				ok= ReadByteFromEC(TP_ECOFFSET_TEMP1+i, &pfcstate->Sensors[idxtemp]);
+				ok = ReadByteFromEC(TP_ECOFFSET_TEMP1+i, &pfcstate->Sensors[idxtemp]);
 				if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
 				if (!ok) this->Trace("failed to read TEMP1 byte from EC");
 			}
@@ -626,24 +620,20 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 		if (ivers >= 3 )
 		{
 			this->Trace("failed to read temps , EC is not ready for TWR");
-			ok = 0;
-			return ok;
+			return 0;
 		}
 
 		for (iTime = 0; iTime < iTimeoutBuf; iTime+= iTick)
 		{	// wait for ec ready
 			data = (char)ReadPort(0x1604) & 0xff;				// or timeout iTimeoutBuf = 1000
-			if (!data)											// ec is ready: ctrlprt = 0
-				break;
-			if (data & 0x50)									// some unrequested outputis waiting 
-				ReadPort(0x161f);								// clear data output
+			if (!data) break;									// ec is ready: ctrlprt = 0
+			if (data & 0x50) ReadPort(0x161f);					// some unrequested outputis waiting -> clear data output
 			::Sleep(iTick);
 		}
 
-		WritePort(0x1610, 0x20);							// tell them we want to read
+		WritePort(0x1610, 0x20);								// tell them we want to read
 		data = (char)ReadPort(0x1604) & 0xff;
-		if (!(data & 0x20))									// ec is not ready 
-			goto neuerversuch;
+		if (!(data & 0x20)) goto neuerversuch;					// ec is not ready 
 
 		for (int i = 1; i < 15; i++)
 		{
@@ -665,53 +655,53 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 			dataOut[i] = (char)ReadPort(0x1610 + i) & 0xff;
 		}
 
-		pfcstate->SensorAddr[0]= 0x78;
-		pfcstate->SensorName[0]= this->gSensorNames[0];
-		pfcstate->Sensors[0]= dataOut[0]; 
+		pfcstate->SensorAddr[0] = 0x78;
+		pfcstate->SensorName[0] = this->gSensorNames[0];
+		pfcstate->Sensors[0] = dataOut[0]; 
 
-		pfcstate->SensorAddr[1]= 0x79;
-		pfcstate->SensorName[1]= this->gSensorNames[1];
-		pfcstate->Sensors[1]= dataOut[1]; 
+		pfcstate->SensorAddr[1] = 0x79;
+		pfcstate->SensorName[1] = this->gSensorNames[1];
+		pfcstate->Sensors[1] = dataOut[1]; 
 
-		pfcstate->SensorAddr[2]= 0x7a;
-		pfcstate->SensorName[2]= this->gSensorNames[2];
-		pfcstate->Sensors[2]= dataOut[2]; 
+		pfcstate->SensorAddr[2] = 0x7a;
+		pfcstate->SensorName[2] = this->gSensorNames[2];
+		pfcstate->Sensors[2] = dataOut[2]; 
 
-		pfcstate->SensorAddr[3]= 0x7b;
-		pfcstate->SensorName[3]= this->gSensorNames[3];
-		pfcstate->Sensors[3]= dataOut[3]; 
+		pfcstate->SensorAddr[3] = 0x7b;
+		pfcstate->SensorName[3] = this->gSensorNames[3];
+		pfcstate->Sensors[3] = dataOut[3]; 
 
-		pfcstate->SensorAddr[4]= 0x7c;
-		pfcstate->SensorName[4]= this->gSensorNames[4]; 
-		pfcstate->Sensors[4]= dataOut[4]; 
+		pfcstate->SensorAddr[4] = 0x7c;
+		pfcstate->SensorName[4] = this->gSensorNames[4]; 
+		pfcstate->Sensors[4] = dataOut[4]; 
 
-		pfcstate->SensorAddr[5]= 0x7d;
-		pfcstate->SensorName[5]= this->gSensorNames[5];
-		pfcstate->Sensors[5]= dataOut[6]; 
+		pfcstate->SensorAddr[5] = 0x7d;
+		pfcstate->SensorName[5] = this->gSensorNames[5];
+		pfcstate->Sensors[5] = dataOut[6]; 
 
-		pfcstate->SensorAddr[6]= 0x7e;
-		pfcstate->SensorName[6]= this->gSensorNames[6]; 
-		pfcstate->Sensors[6]= dataOut[8]; 
+		pfcstate->SensorAddr[6] = 0x7e;
+		pfcstate->SensorName[6] = this->gSensorNames[6]; 
+		pfcstate->Sensors[6] = dataOut[8]; 
 
-		pfcstate->SensorAddr[7]= 0x7f;
-		pfcstate->SensorName[7]= this->gSensorNames[7];
-		pfcstate->Sensors[7]= dataOut[9]; 
+		pfcstate->SensorAddr[7] = 0x7f;
+		pfcstate->SensorName[7] = this->gSensorNames[7];
+		pfcstate->Sensors[7] = dataOut[9]; 
 
-		pfcstate->SensorAddr[8]= 0xc0;
-		pfcstate->SensorName[8]= this->gSensorNames[8];
-		pfcstate->Sensors[8]= dataOut[10]; 
+		pfcstate->SensorAddr[8] = 0xc0;
+		pfcstate->SensorName[8] = this->gSensorNames[8];
+		pfcstate->Sensors[8] = dataOut[10]; 
 
-		pfcstate->SensorAddr[9]= 0xc1;
-		pfcstate->SensorName[9]= this->gSensorNames[9];
-		pfcstate->Sensors[9]= dataOut[11]; 
+		pfcstate->SensorAddr[9] = 0xc1;
+		pfcstate->SensorName[9] = this->gSensorNames[9];
+		pfcstate->Sensors[9] = dataOut[11]; 
 
-		pfcstate->SensorAddr[10]= 0xc2;
-		pfcstate->SensorName[10]= this->gSensorNames[10];
-		pfcstate->Sensors[10]= dataOut[12]; 
+		pfcstate->SensorAddr[10] = 0xc2;
+		pfcstate->SensorName[10] = this->gSensorNames[10];
+		pfcstate->Sensors[10] = dataOut[12]; 
 
-		pfcstate->SensorAddr[11]= 0xc3;
-		pfcstate->SensorName[11]= this->gSensorNames[11];
-		pfcstate->Sensors[11]= dataOut[13]; 
+		pfcstate->SensorAddr[11] = 0xc3;
+		pfcstate->SensorName[11] = this->gSensorNames[11];
+		pfcstate->Sensors[11] = dataOut[13]; 
 	}
 	return ok;
 }

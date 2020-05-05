@@ -233,17 +233,17 @@ BOOL TASKBARICON::RebuildIfNecessary(BOOL force)
 int TASKBARICON::SetIcon(int iconid)
 {
 	BOOL ok;
-	NOTIFYICONDATA nof= NULLSTRUCT;
+	NOTIFYICONDATA nof = NULLSTRUCT;
 
-	this->IconId= iconid;
+	this->IconId = iconid;
 
-	nof.cbSize= sizeof(nof);
-	nof.hWnd= this->Owner;
-	nof.uID= this->Id;
-	nof.uFlags= NIF_ICON;
-	nof.hIcon= (HICON)::LoadImage(hInstRes, MAKEINTRESOURCE(this->IconId), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
+	nof.cbSize = sizeof(nof);
+	nof.hWnd = this->Owner;
+	nof.uID = this->Id;
+	nof.uFlags = NIF_ICON;
+	nof.hIcon = (HICON)::LoadImage(hInstRes, MAKEINTRESOURCE(this->IconId), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR);
 
-	ok= ::Shell_NotifyIcon(NIM_MODIFY, &nof);
+	ok = ::Shell_NotifyIcon(NIM_MODIFY, &nof);
 
 	if (nof.hIcon)
 	{
@@ -266,29 +266,26 @@ int TASKBARICON::SetTooltip(const char *tooltip)
 {
 	BOOL ok= 0;
 
-	
 	if (strcmp(this->Tooltip, tooltip)!=0)
 	{
 		strcpy_s(this->Tooltip,sizeof(Tooltip), tooltip);
 
-
 		NOTIFYICONDATA nof= NULLSTRUCT;
 
-		nof.cbSize= sizeof(nof);
-		nof.hWnd= this->Owner;
-		nof.uID= this->Id;
-		nof.uFlags= NIF_TIP;
+		nof.cbSize = sizeof(nof);
+		nof.hWnd = this->Owner;
+		nof.uID = this->Id;
+		nof.uFlags = NIF_TIP;
 		lstrcpyn(nof.szTip, this->Tooltip, sizeof(nof.szTip)-1);
 
-
-		ok= ::Shell_NotifyIcon(NIM_MODIFY, &nof);
+		ok = ::Shell_NotifyIcon(NIM_MODIFY, &nof);
 
 		// try to rebuild if SetTooltip failed
 		if (!ok && !this->InsideTooltipRebuild)
 		{
-			this->InsideTooltipRebuild= TRUE;
+			this->InsideTooltipRebuild = TRUE;
 			this->RebuildIfNecessary(TRUE);
-			this->InsideTooltipRebuild= FALSE;
+			this->InsideTooltipRebuild = FALSE;
 		}
 	}
 	return ok;
@@ -301,14 +298,14 @@ int TASKBARICON::SetBalloon(ULONG flags, const char *title, const char *text, in
 
 	NOTIFYICONDATA nof= NULLSTRUCT;
 
-	nof.cbSize= sizeof(NOTIFYICONDATA);
-	nof.hWnd= this->Owner;
-	nof.uID= this->Id;
-	nof.uFlags= NIF_INFO;
+	nof.cbSize = sizeof(NOTIFYICONDATA);
+	nof.hWnd = this->Owner;
+	nof.uID = this->Id;
+	nof.uFlags = NIF_INFO;
 	nof.dwInfoFlags = flags;
 	nof.uTimeout = timeout;
-	lstrcpyn(nof.szInfo, text, sizeof(nof.szInfo)-1);
-	lstrcpyn(nof.szInfoTitle, title, sizeof(nof.szInfoTitle)-1);
+	lstrcpyn(nof.szInfo, text, sizeof(nof.szInfo) - 1);
+	lstrcpyn(nof.szInfoTitle, title, sizeof(nof.szInfoTitle) - 1);
 
 	return Shell_NotifyIcon(NIM_MODIFY, &nof);
 
@@ -428,16 +425,16 @@ HMENU MENU::GetSubmenuFromPos(int pos)
 //--------------------------------------------------------------------
 int MENU::GetMenuPosFromID(int id)
 {
-	int rc= -1;
+	int rc = -1;
 
-	int i, mid, numof= ::GetMenuItemCount(*this);
+	int i, mid, numof = ::GetMenuItemCount(*this);
 
-	for (i=0; i<numof; i++)
+	for (i = 0; i < numof; i++)
 	{
-		mid= ::GetMenuItemID(*this, i);
-		if (mid==id)
+		mid = ::GetMenuItemID(*this, i);
+		if (mid == id)
 		{
-			rc= i;
+			rc = i;
 			break;
 		}
 	}
@@ -451,10 +448,10 @@ int MENU::GetMenuPosFromID(int id)
 //-------------------------------------------------------------------------
 BOOL MENU::InsertItem(const char *text, int id, int pos)
 {
-	MENUITEMINFO mi= NULLSTRUCT;
-	mi.cbSize= sizeof(mi);
-	mi.fMask= MIIM_TYPE | MIIM_ID;
-	mi.wID= id;
+	MENUITEMINFO mi = NULLSTRUCT;
+	mi.cbSize = sizeof(mi);
+	mi.fMask = MIIM_TYPE | MIIM_ID;
+	mi.wID = id;
 
 	if (!text)
 	{
@@ -462,9 +459,9 @@ BOOL MENU::InsertItem(const char *text, int id, int pos)
 	}
 	else
 	{
-		mi.fMask|= MIIM_DATA;
-		mi.fType= MFT_STRING;
-		mi.dwTypeData= (char *)text;
+		mi.fMask |= MIIM_DATA;
+		mi.fType = MFT_STRING;
+		mi.dwTypeData = (char *)text;
 	}
 
 	return ::InsertMenuItem(*this, pos, TRUE, &mi);
@@ -479,24 +476,23 @@ int MENU::Popup(HWND hwndowner, POINT *ppoint, BOOL synchtrack)
 	POINT point;
 	HMENU hmenu, hmenuShow;
 
-	if (ppoint) point= *ppoint;
+	if (ppoint) point = *ppoint;
 	else ::GetCursorPos(&point);
 
-	hmenu= CreateMenu();
+	hmenu = CreateMenu();
 	::AppendMenu(hmenu, MF_POPUP | MF_STRING, (UINT)this->hMenu, "BLUB");
-	hmenuShow= ::GetSubMenu(hmenu, 0);
-	RECT r= { 0, 0, 10, 10 };
+	hmenuShow = ::GetSubMenu(hmenu, 0);
+	RECT r = { 0, 0, 10, 10 };
 
 	if (hwndowner) ::SetForegroundWindow(hwndowner);
 
+	ULONG flags = TPM_LEFTALIGN | TPM_LEFTBUTTON;
 
-	ULONG flags= TPM_LEFTALIGN | TPM_LEFTBUTTON;
+	if (synchtrack & 1) flags |= TPM_RETURNCMD;
 
-	if (synchtrack & 1) flags|= TPM_RETURNCMD;
+	if (synchtrack & TPM_RIGHTALIGN) flags |= TPM_RIGHTALIGN;
 
-	if (synchtrack & TPM_RIGHTALIGN) flags|= TPM_RIGHTALIGN;
-
-	int rc= ::TrackPopupMenu(hmenuShow, flags, point.x,point.y, 0, hwndowner, &r);
+	int rc = ::TrackPopupMenu(hmenuShow, flags, point.x,point.y, 0, hwndowner, &r);
 
 	if (hwndowner) ::PostMessage(hwndowner, WM_NULL, 0, 0);
 

@@ -1,21 +1,4 @@
-﻿  _prec.cpp
-  approot.cpp
-  dynamicicon.cpp
-  fancontrol.cpp
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(332,44): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(365,44): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(389,6): warning C4996: 'GetVersionExA': wurde als veraltet deklariert
-  fanstuff.cpp
-D:\Development\TPFanControl\fancontrol\fanstuff.cpp(122,84): warning C4474: "sprintf_s": zu viele Argumente für Formatzeichenfolge übergeben
-D:\Development\TPFanControl\fancontrol\fanstuff.cpp(122,84): message : Platzhalter und deren Parameter erwarten 0 variadic-Argumente, es wurden aber 1 variadic-Argumente bereitgestellt.
-  portio.cpp
-D:\Development\TPFanControl\fancontrol\portio.cpp(92,18): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  SystemTraySDK.cpp
-D:\Development\TPFanControl\fancontrol\SystemTraySDK.cpp(126,5): warning C4996: 'GetVersionExA': wurde als veraltet deklariert
-D:\Development\TPFanControl\fancontrol\SystemTraySDK.cpp(174,19): warning C4996: 'GetVersion': wurde als veraltet deklariert
-  winstuff.cpp
-  misc.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1278,5): warning MSB8012: TargetPath(D:\Development\TPFanControl\fancontrol\.\Release\fancontrol.exe) entspricht nicht dem OutputFile-Eigenschaftswert (D:\Development\TPFanControl\fancontrol\Release\TPFanControl.exe) von Linker. Das Projekt wird daher möglicherweise nicht ordnungsgemäß erstellt. Damit dieses Problem behoben werden kann, müssen die Eigenschaftswerte für $(OutDir), $(TargetName) und $(TargetExt) dem in %(Link.OutputFile) angegebenen Wert entsprechen.
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1278,5): warning MSB8012: TargetPath(D:\Development\TPFanControl\fancontrol\.\Release\fancontrol.exe) entspricht nicht dem OutputFile-Eigenschaftswert (D:\Development\TPFanControl\fancontrol\Release\TPFanControl.exe) von Linker. Das Projekt wird daher möglicherweise nicht ordnungsgemäß erstellt. Damit dieses Problem behoben werden kann, müssen die Eigenschaftswerte für $(OutDir), $(TargetName) und $(TargetExt) dem in %(Link.OutputFile) angegebenen Wert entsprechen.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(1280,5): warning MSB8012: TargetName(fancontrol) entspricht nicht dem OutputFile-Eigenschaftswert (TPFanControl) von Linker. Das Projekt wird daher möglicherweise nicht ordnungsgemäß erstellt. Damit dieses Problem behoben werden kann, müssen die Eigenschaftswerte für $(OutDir), $(TargetName) und $(TargetExt) dem in %(Link.OutputFile) angegebenen Wert entsprechen.
   Code wird generiert.
   Codegenerierung ist abgeschlossen.

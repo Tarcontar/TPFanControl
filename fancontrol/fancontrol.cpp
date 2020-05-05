@@ -353,7 +353,7 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 	sprintf_s(bufsec, sizeof(bufsec), "Windows uptime since boot %d sec., SecWinUptime= %d sec.", tickCount/1000, SecWinUptime);
 	this->Trace(bufsec);
 
-	if ((tickCount/1000) <= SecWinUptime)
+	if ((tickCount / 1000) <= SecWinUptime)
 	{
 		sprintf_s(bufsec,sizeof(bufsec), "Save the icon by a start delay of %d seconds (SecStartDelay)", SecStartDelay);
 		this->Trace(bufsec);
@@ -1515,7 +1515,7 @@ void FANCONTROL::ProcessTextIcons(void)
 	
 	if (this->IconColorFan)
 	{
-		switch (fanspeed/1000)
+		switch (fanspeed / 1000)
 		{
 			case 0:
 				break;
@@ -1551,9 +1551,9 @@ void FANCONTROL::ProcessTextIcons(void)
 
 	this->iFarbeIconB = icon;
 
-	lstrcpyn(myszTip, this->Title2, sizeof(myszTip)-1);
+	lstrcpyn(myszTip, this->Title2, sizeof(myszTip) - 1);
 	
-    if(pTextIconMutex->Lock(100)) 
+    if(pTextIconMutex->Lock(100))
 	{
         //INIT ppTbTextIcon
         if(!ppTbTextIcon || this->TaskbarNew) 

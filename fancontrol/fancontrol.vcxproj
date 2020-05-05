@@ -197,7 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\resource" />
-    <None Include="TPFanControl.ini" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="TVicPort.lib" />

@@ -1,5 +1,1 @@
-﻿  fancontrol.cpp
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(325,44): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(343,45): warning C4996: '_itoa': This function or variable may be unsafe. Consider using _itoa_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-D:\Development\TPFanControl\fancontrol\fancontrol.cpp(367,4): warning C4996: 'GetVersionExA': wurde als veraltet deklariert
-  fancontrol.vcxproj -> D:\Development\TPFanControl\fancontrol\.\Debug\fancontrol.exe
+﻿  fancontrol.vcxproj -> D:\Development\TPFanControl\fancontrol\.\Debug\fancontrol.exe
