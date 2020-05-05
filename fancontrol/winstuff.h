@@ -41,15 +41,13 @@
 //-------------------------------------------------------------------------
 //
 //-------------------------------------------------------------------------
-class MUTEXSEM {
-
+class MUTEXSEM
+{
     private:
         HANDLE hmux;
 
         MUTEXSEM(MUTEXSEM &);               // disallow argument passing
         void operator=(MUTEXSEM &) { };     // disallow assignment
-
-    protected:
 
     public:
         MUTEXSEM(int state= FALSE, const char *name= "Access_Thinkpad_EC");
@@ -57,15 +55,13 @@ class MUTEXSEM {
         int Lock(int millies= 0xFFFFFFFF);
         void Unlock();
 
-        HANDLE Handle(void)
-            { return this->hmux; }
-        operator HANDLE(void)
-            { return this->hmux; }
+        HANDLE Handle(void) { return this->hmux; }
+        operator HANDLE(void) { return this->hmux; }
 };
 
 
-class TASKBARICON {
-
+class TASKBARICON
+{
 	private:
 		BOOL UpAndRunning;
 
@@ -75,7 +71,6 @@ class TASKBARICON {
 		char Tooltip[256];
 		int osVersion; //TODO: war drin?
 		volatile BOOL InsideTooltipRebuild; //should be declared as volatile for concurrency reasons
-
 
 	public:
 		TASKBARICON(HWND hwndowner, int id, const char *tooltip);
@@ -95,11 +90,9 @@ class TASKBARICON {
 }; 
 
 
-class MENU {
-
-	private:
-
-	protected: 
+class MENU
+{
+	protected:
 		BOOL IsLoaded;
 		HMENU hMenu;
 		HWND hWndOwner;
@@ -108,11 +101,9 @@ class MENU {
 		MENU(HWND hwnd);
 		MENU(HMENU hm);
 		MENU(int id, HINSTANCE hdll= (HINSTANCE)(ULONG)-1);
-		~MENU()
-			{ if (this->IsLoaded) ::DestroyMenu(this->hMenu); this->hMenu= NULL; }
+		~MENU() { if (this->IsLoaded) ::DestroyMenu(this->hMenu); this->hMenu= NULL; }
 
-		operator HMENU(void) const
-				{ return (HMENU)this->hMenu; }
+		operator HMENU(void) const { return (HMENU)this->hMenu; }
 
 		int GetNumMenuItems(void);
 		BOOL IsMenuItemSeparator(int pos);
@@ -121,10 +112,8 @@ class MENU {
 		void DisableMenuItem(int id);
 		int DeleteMenuItem(int id, BOOL idispos= FALSE);
 		BOOL InsertItem(const char *text, int id, int pos= -1);
-		BOOL InsertMenuItem(const char *text, int id, int pos= -1)
-				{ return this->InsertItem(text, id, pos); }
-		BOOL InsertSeparator(int pos)
-				{ return this->InsertItem(NULL, 0, pos); }
+		BOOL InsertMenuItem(const char *text, int id, int pos= -1) { return this->InsertItem(text, id, pos); }
+		BOOL InsertSeparator(int pos) { return this->InsertItem(NULL, 0, pos); }
 		void CheckMenuItem(int id, int status= TRUE);
 		void UncheckMenuItem(int id);
 		BOOL IsFlags(int id, int flags);

@@ -49,18 +49,18 @@
 
 class FANCONTROL 
 {
-	protected:
-		HINSTANCE hinstapp;
+    protected:
+        HINSTANCE hinstapp;
         HINSTANCE m_hinstapp;
-		HWND hwndDialog;
-        
-		UINT_PTR m_fanTimer;
-		UINT_PTR m_titleTimer;
-		UINT_PTR m_iconTimer;
-		UINT_PTR m_renewTimer;
+        HWND hwndDialog;
 
-        struct FCSTATE {
+        UINT_PTR m_fanTimer;
+        UINT_PTR m_titleTimer;
+        UINT_PTR m_iconTimer;
+        UINT_PTR m_renewTimer;
 
+        struct FCSTATE
+		{
 			char FanCtrl,
 				 FanSpeedLo,
 				 FanSpeedHi;
@@ -68,23 +68,25 @@ class FANCONTROL
 			char Sensors[12];
 			int  SensorAddr[12];
 			const char *SensorName[12];
-
-
 		} State;
 
-		struct SMARTENTRY {
+		struct SMARTENTRY
+		{
 				int temp, fan;
 		} SmartLevels[32];
 
-		struct SMARTENTRY1 {
+		struct SMARTENTRY1
+		{
 				int temp1, fan1;
 		} SmartLevels1[32];
 
-		struct SMARTENTRY2 {
+		struct SMARTENTRY2
+		{
 				int temp2, fan2;
 		} SmartLevels2[32];
 
-		struct FSMARTENTRY {		//fahrenheit values
+		struct FSMARTENTRY
+		{		//fahrenheit values
 				int ftemp, ffan;
 		} FSmartLevels[32];
 
@@ -199,12 +201,12 @@ class FANCONTROL
         MUTEXSEM *pTextIconMutex;
 
 
-
-		static int _stdcall FANCONTROL_Thread(ULONG parm) \
-                        { return ((FANCONTROL *)parm)->WorkThread(); }
+		static int _stdcall FANCONTROL_Thread(ULONG parm) 
+		{ 
+			return ((FANCONTROL *)parm)->WorkThread();
+		}
 
 		int WorkThread();
-
 
 		// fancontrol.cpp
 		int ReadEcStatus(FCSTATE *pfcstate);
@@ -232,7 +234,6 @@ class FANCONTROL
 		int WriteByteToEC(int offset, char data);
 
 	public:
-
 		FANCONTROL(HINSTANCE hinstapp);
 		~FANCONTROL();
 

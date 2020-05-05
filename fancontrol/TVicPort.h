@@ -19,7 +19,8 @@ extern "C" {
 
 #pragma pack(1)
 
-typedef struct _HDDInfo {
+typedef struct _HDDInfo
+{
 	ULONG	BufferSize;
 	ULONG	DoubleTransfer;
 	ULONG	ControllerType;

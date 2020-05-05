@@ -1,5 +1,4 @@
-﻿
-// --------------------------------------------------------------
+﻿// --------------------------------------------------------------
 //
 //  Thinkpad Fan Control
 //
@@ -19,7 +18,6 @@
 #include "_prec.h"
 #include "fancontrol.h"
 #include "TVicPort.h"
-
 
 // Registers of the embedded controller
 #define EC_DATAPORT	0x1600	// EC data io-port 0x62
@@ -49,49 +47,61 @@ logbuf[8192]= "";
 //-------------------------------------------------------------------------
 int FANCONTROL::ReadByteFromEC(int offset, char *pdata)
 {
-char data= -1;
-char data2= -1;
-int iOK = false;
-int iTimeout = 100;
-int iTimeoutBuf = 1000;
-int	iTime= 0;
-int iTick= 10;
+	char data= -1;
+	char data2= -1;
+	int iOK = false;
+	int iTimeout = 100;
+	int iTimeoutBuf = 1000;
+	int	iTime= 0;
+	int iTick= 10;
 
-for (iTime = 0; iTime < iTimeoutBuf; iTime+= iTick) {	// wait for full buffers to clear
-	data = (char)ReadPort(EC_CTRLPORT) & 0xff;			// or timeout iTimeoutBuf = 1000
-	if ( !(data & (EC_STAT_IBF | EC_STAT_OBF)) ) break;
-	::Sleep(iTick);}
+	for (iTime = 0; iTime < iTimeoutBuf; iTime+= iTick)
+	{	// wait for full buffers to clear
+		data = (char)ReadPort(EC_CTRLPORT) & 0xff;			// or timeout iTimeoutBuf = 1000
+		if ( !(data & (EC_STAT_IBF | EC_STAT_OBF)) ) break;
+		::Sleep(iTick);
+	}
 
-if (data & EC_STAT_OBF) data2 = (char)ReadPort(EC_DATAPORT); //clear OBF if full
+	if (data & EC_STAT_OBF) data2 = (char)ReadPort(EC_DATAPORT); //clear OBF if full
 
-WritePort(EC_CTRLPORT, EC_CTRLPORT_READ);			// tell 'em we want to "READ"
+	WritePort(EC_CTRLPORT, EC_CTRLPORT_READ);			// tell 'em we want to "READ"
 
-for (iTime = 0; iTime < iTimeout; iTime += iTick) {	// wait for IBF and OBF to clear
-	data = (char)ReadPort(EC_CTRLPORT) & 0xff;
-	if ( !(data & (EC_STAT_IBF | EC_STAT_OBF)) ) {
-		iOK= true;
-		break;}
-	::Sleep(iTick);} // try again after a moment
-
-if (!iOK) return 0;
-iOK = false;
-
-WritePort(EC_DATAPORT, offset);						// tell 'em where we want to read from
-
-if ( !(data & EC_STAT_OBF) ) {
-	for (iTime= 0; iTime<iTimeout; iTime+= iTick) { // wait for OBF 
+	for (iTime = 0; iTime < iTimeout; iTime += iTick)
+	{	// wait for IBF and OBF to clear
 		data = (char)ReadPort(EC_CTRLPORT) & 0xff;
-		if ( (data & EC_STAT_OBF) ) {
+		if ( !(data & (EC_STAT_IBF | EC_STAT_OBF)) )
+		{
 			iOK= true;
-			break;}
-		::Sleep(iTick);}							// try again after a moment
-	if (!iOK) return 0;}
+			break;
+		}
+		::Sleep(iTick);
+	} // try again after a moment
 
-*pdata = ReadPort(EC_DATAPORT);
+	if (!iOK) return 0;
+	iOK = false;
 
-if (verbosity>0) sprintf(logbuf+strlen(logbuf), "readec: offset= %x, data= %02x\n", offset, *pdata);
+	WritePort(EC_DATAPORT, offset);						// tell 'em where we want to read from
 
-return 1;
+	if ( !(data & EC_STAT_OBF) )
+	{
+		for (iTime= 0; iTime<iTimeout; iTime+= iTick)
+		{ // wait for OBF 
+			data = (char)ReadPort(EC_CTRLPORT) & 0xff;
+			if ( (data & EC_STAT_OBF) )
+			{
+				iOK= true;
+				break;
+			}
+			::Sleep(iTick); // try again after a moment
+		}
+		if (!iOK) return 0;
+	}
+
+	*pdata = ReadPort(EC_DATAPORT);
+
+	if (verbosity>0) sprintf(logbuf+strlen(logbuf), "readec: offset= %x, data= %02x\n", offset, *pdata);
+
+	return 1;
 }
 
 
