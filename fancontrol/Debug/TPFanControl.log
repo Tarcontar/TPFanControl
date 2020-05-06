@@ -1,576 +1,373 @@
-[4/5/18 2:42:42 PM] Current Config:
-[4/5/18 2:42:42 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:42:42 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:42:42 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:42:42 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:42:42 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:42:42 PM]   SensorOffset1-12= 0 6 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:42:42 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:42:42 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:42:42 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
+[05.05.2020 21:07:09] Current Config:
+[05.05.2020 21:07:09]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[05.05.2020 21:07:09]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[05.05.2020 21:07:09]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[05.05.2020 21:07:09]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
+[05.05.2020 21:07:09]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
+[05.05.2020 21:07:09]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
+[05.05.2020 21:07:09]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[05.05.2020 21:07:09]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[05.05.2020 21:07:09]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
 
-[4/5/18 2:42:42 PM] Windows uptime since boot 21653 sec., SecWinUptime= 0 sec.
-[4/5/18 2:42:54 PM] Change Mode from BIOS->Manual, setting fan speed
-[4/5/18 2:42:54 PM] Fan: 0x80 / Switch: 257째F (123;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:42:54 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:42:55 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:42:55 PM] Fan: 0x00 / Switch: 257째F (123;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:42:55 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:42:58 PM] Fan: 0x07 / Switch: 122째F (122;78;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:42:58 PM] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[4/5/18 2:43:02 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:03 PM] Fan: 0x03 / Switch: 122째F (122;78;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:03 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:09 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:09 PM] Fan: 0x00 / Switch: 257째F (123;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:09 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:13 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:14 PM] Fan: 0x07 / Switch: 257째F (125;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:14 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:15 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:16 PM] Fan: 0x00 / Switch: 257째F (125;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:16 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:16 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:17 PM] Fan: 0x07 / Switch: 257째F (125;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:17 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:25 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:25 PM] Fan: 0x00 / Switch: 257째F (122;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:25 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:25 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:26 PM] Fan: 0x07 / Switch: 257째F (120;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:26 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:26 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:27 PM] Fan: 0x00 / Switch: 257째F (120;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:27 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:27 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:28 PM] Fan: 0x07 / Switch: 257째F (120;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:28 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:30 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:30 PM] Fan: 0x00 / Switch: 257째F (120;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:30 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:32 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:33 PM] Fan: 0x07 / Switch: 257째F (120;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:33 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:33 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:33 PM] Fan: 0x00 / Switch: 257째F (118;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:33 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:43:54 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:43:54 PM] Fan: 0x07 / Switch: 257째F (109;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:54 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:43:55 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:43:55 PM] Fan: 0x00 / Switch: 257째F (109;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:43:55 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:44:00 PM] Activation of Fan Control Profile 'Smart Mode 2'
-[4/5/18 2:44:11 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:44:11 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:44:11 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:47:02 PM] Change Mode from BIOS->Manual, setting fan speed
-[4/5/18 2:47:03 PM] Fan: 0x80 / Switch: 257째F (105;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:47:03 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:47:03 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:47:04 PM] Fan: 0x00 / Switch: 257째F (105;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:47:04 PM] Smart: Set fan control to 0x07, Mode 2, Result: OK
-[4/5/18 2:47:10 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:47:11 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:47:11 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:47:11 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:47:11 PM] Fan: 0x00 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:47:11 PM] Smart: Set fan control to 0x07, Mode 2, Result: OK
-[4/5/18 2:47:15 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:47:15 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:47:15 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:48:14 PM] Fan: 0x80 / Switch: 257째F (105;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:48:14 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:48:14 PM] Exiting ProcessDialog
-[4/5/18 2:48:19 PM] Current Config:
-[4/5/18 2:48:19 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:48:19 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:48:19 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:48:19 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:48:19 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:48:19 PM]   SensorOffset1-12= 0 6 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:48:19 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:48:19 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:48:19 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
+[05.05.2020 21:07:09] Windows uptime since boot 3415 sec., SecWinUptime= 0 sec.
+[05.05.2020 21:07:09] failed to read TEMP0 byte from EC
+[05.05.2020 21:07:10] failed to read TEMP1 byte from EC
+[05.05.2020 21:07:10] Change Mode from BIOS->Smart, recalculate fan speed
+[05.05.2020 21:07:10] Fan: 0x80 / Switch: 55캜 (55; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 21:07:10] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[05.05.2020 21:07:11] failed to read TEMP0 byte from EC
+[05.05.2020 21:07:14] failed to read TEMP0 byte from EC
+[05.05.2020 21:07:15] failed to read TEMP0 byte from EC
+[05.05.2020 21:07:21] Fan: 0x00 / Switch: 60캜 (60; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 21:07:21] On close: Set fan control to 0x80, Result: OK
+[05.05.2020 21:07:21] Exiting ProcessDialog
+[05.05.2020 21:07:23] Current Config:
+[05.05.2020 21:07:23]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[05.05.2020 21:07:23]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[05.05.2020 21:07:23]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[05.05.2020 21:07:23]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
+[05.05.2020 21:07:23]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
+[05.05.2020 21:07:23]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
+[05.05.2020 21:07:23]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[05.05.2020 21:07:23]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[05.05.2020 21:07:23]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
 
-[4/5/18 2:48:19 PM] Windows uptime since boot 21990 sec., SecWinUptime= 0 sec.
-[4/5/18 2:49:06 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:49:07 PM] Fan: 0x80 / Switch: 257째F (109;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:49:07 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:49:35 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:49:35 PM] Fan: 0x07 / Switch: 257째F (102;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:49:35 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:50:29 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:50:29 PM] Fan: 0x80 / Switch: 257째F (105;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:50:29 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:50:41 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:50:41 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:50:41 PM] Exiting ProcessDialog
-[4/5/18 2:50:44 PM] Current Config:
-[4/5/18 2:50:44 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:50:44 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:50:44 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:50:44 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:50:44 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:50:44 PM]   SensorOffset1-12= 0 6 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:50:44 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:50:44 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:50:44 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
+[05.05.2020 21:07:23] Windows uptime since boot 3429 sec., SecWinUptime= 0 sec.
+[05.05.2020 21:07:23] Change Mode from BIOS->Smart, recalculate fan speed
+[05.05.2020 21:07:23] Fan: 0x80 / Switch: 56캜 (56; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 21:07:23] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[05.05.2020 21:07:24] failed to read TEMP0 byte from EC
+[05.05.2020 22:31:45] Current Config:
+[05.05.2020 22:31:45]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[05.05.2020 22:31:45]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[05.05.2020 22:31:45]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[05.05.2020 22:31:45]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
+[05.05.2020 22:31:45]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
+[05.05.2020 22:31:45]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
+[05.05.2020 22:31:45]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[05.05.2020 22:31:45]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[05.05.2020 22:31:45]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
 
-[4/5/18 2:50:44 PM] Windows uptime since boot 22135 sec., SecWinUptime= 0 sec.
-[4/5/18 2:51:32 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:51:33 PM] Fan: 0x80 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:51:33 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:51:37 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:51:37 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:51:37 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:52:39 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:52:39 PM] Fan: 0x80 / Switch: 257째F (107;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:52:39 PM] Smart: Set fan control to 0x07, Mode 1, Result: OK
-[4/5/18 2:53:10 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:53:10 PM] Fan: 0x07 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:53:10 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:53:19 PM] Fan: 0x80 / Switch: 257째F (104;257;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:53:19 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:53:19 PM] Exiting ProcessDialog
-[4/5/18 2:55:01 PM] Current Config:
-[4/5/18 2:55:01 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:55:01 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:55:01 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:55:01 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:55:01 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:55:01 PM]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:55:01 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:55:01 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:55:01 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
+[05.05.2020 22:31:45] Windows uptime since boot 8490 sec., SecWinUptime= 0 sec.
+[05.05.2020 22:31:45] Change Mode from BIOS->Smart, recalculate fan speed
+[05.05.2020 22:31:45] Fan: 0x80 / Switch: 50캜 (50; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:31:45] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[05.05.2020 22:32:15] Fan: 0x00 / Switch: 78캜 (78; 53; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:32:15] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[05.05.2020 22:32:45] Fan: 0x03 / Switch: 72캜 (72; 66; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:32:45] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[05.05.2020 22:32:55] Fan: 0x01 / Switch: 81캜 (81; 59; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:32:55] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[05.05.2020 22:33:55] Fan: 0x03 / Switch: 74캜 (74; 69; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:33:55] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[05.05.2020 22:34:15] Fan: 0x01 / Switch: 79캜 (79; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:34:15] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[05.05.2020 22:34:30] failed to read TEMP1 byte from EC
+[05.05.2020 22:34:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:34:31] failed to read TEMP0 byte from EC
+[05.05.2020 22:34:31] Warning: can't read Status, read error count = 0
+[05.05.2020 22:34:31] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:34:35] failed to read TEMP1 byte from EC
+[05.05.2020 22:34:36] failed to read TEMP0 byte from EC
+[05.05.2020 22:34:36] failed to read TEMP0 byte from EC
+[05.05.2020 22:34:36] Warning: can't read Status, read error count = 1
+[05.05.2020 22:34:36] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:11] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:11] Warning: can't read Status, read error count = 0
+[05.05.2020 22:35:11] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:16] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:16] Warning: can't read Status, read error count = 1
+[05.05.2020 22:35:16] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:21] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:21] Warning: can't read Status, read error count = 2
+[05.05.2020 22:35:21] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:25] failed to read TEMP1 byte from EC
+[05.05.2020 22:35:25] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:26] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:26] Warning: can't read Status, read error count = 3
+[05.05.2020 22:35:26] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:30] failed to read TEMP1 byte from EC
+[05.05.2020 22:35:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:31] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:31] Warning: can't read Status, read error count = 4
+[05.05.2020 22:35:31] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:35] failed to read TEMP1 byte from EC
+[05.05.2020 22:35:35] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:36] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:36] Warning: can't read Status, read error count = 5
+[05.05.2020 22:35:36] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:40] failed to read TEMP1 byte from EC
+[05.05.2020 22:35:41] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:41] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:41] Warning: can't read Status, read error count = 6
+[05.05.2020 22:35:41] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:35:45] failed to read TEMP1 byte from EC
+[05.05.2020 22:35:46] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:46] failed to read TEMP0 byte from EC
+[05.05.2020 22:35:46] Warning: can't read Status, read error count = 7
+[05.05.2020 22:35:46] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:36:25] Fan: 0x03 / Switch: 76캜 (76; 71; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:36:25] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[05.05.2020 22:36:26] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:26] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:27] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:27] Warning: can't read Status, read error count = 0
+[05.05.2020 22:36:27] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:36:40] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:36:40] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:36:40] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:41] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:41] Warning: can't read Status, read error count = 0
+[05.05.2020 22:36:41] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:36:45] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:36:45] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:36:45] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:46] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:46] Warning: can't read Status, read error count = 1
+[05.05.2020 22:36:46] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:36:50] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:36:50] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:36:50] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:51] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:51] Warning: can't read Status, read error count = 2
+[05.05.2020 22:36:51] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:36:55] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:36:55] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:56] failed to read TEMP0 byte from EC
+[05.05.2020 22:36:56] Warning: can't read Status, read error count = 3
+[05.05.2020 22:36:56] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:00] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:00] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:01] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:01] Warning: can't read Status, read error count = 4
+[05.05.2020 22:37:01] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:05] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:05] failed to read TEMP1 byte from EC
+[05.05.2020 22:37:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:11] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:11] Warning: can't read Status, read error count = 0
+[05.05.2020 22:37:11] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:16] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:16] Warning: can't read Status, read error count = 1
+[05.05.2020 22:37:16] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:21] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:21] Warning: can't read Status, read error count = 2
+[05.05.2020 22:37:21] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:25] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:25] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:26] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:37:26] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:37:26] Warning: can't read Status, read error count = 3
+[05.05.2020 22:37:26] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:31] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:31] Warning: can't read Status, read error count = 4
+[05.05.2020 22:37:31] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:35] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:35] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:37:35] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:37:36] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:36] Warning: can't read Status, read error count = 5
+[05.05.2020 22:37:36] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:40] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:40] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:41] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:41] Warning: can't read Status, read error count = 6
+[05.05.2020 22:37:41] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:45] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:37:45] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:37:45] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:46] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:46] Warning: can't read Status, read error count = 7
+[05.05.2020 22:37:46] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:37:50] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:37:50] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:37:50] failed to read TEMP1 byte from EC
+[05.05.2020 22:37:55] failed to read FanSpeedLowByte from EC
+[05.05.2020 22:37:55] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:37:55] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:56] failed to read TEMP0 byte from EC
+[05.05.2020 22:37:56] Warning: can't read Status, read error count = 0
+[05.05.2020 22:37:56] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:00] failed to read FanSpeedHighByte from EC
+[05.05.2020 22:38:00] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:01] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:01] Warning: can't read Status, read error count = 1
+[05.05.2020 22:38:01] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:05] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:05] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:06] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:06] Warning: can't read Status, read error count = 2
+[05.05.2020 22:38:06] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:10] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:11] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:11] Warning: can't read Status, read error count = 3
+[05.05.2020 22:38:11] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:15] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:16] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:16] Warning: can't read Status, read error count = 4
+[05.05.2020 22:38:16] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:20] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:21] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:21] Warning: can't read Status, read error count = 5
+[05.05.2020 22:38:21] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:25] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:25] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:26] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:26] Warning: can't read Status, read error count = 6
+[05.05.2020 22:38:26] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:30] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:31] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:31] Warning: can't read Status, read error count = 7
+[05.05.2020 22:38:31] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:35] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:35] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:36] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:36] Warning: can't read Status, read error count = 8
+[05.05.2020 22:38:36] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:40] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:40] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:41] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:41] Warning: can't read Status, read error count = 9
+[05.05.2020 22:38:41] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:45] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:45] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:46] failed to read TEMP0 byte from EC
+[05.05.2020 22:38:46] Warning: can't read Status, read error count = 10
+[05.05.2020 22:38:46] We will close to BIOS-Mode after 10 consecutive read errors
+[05.05.2020 22:38:47] Fan: 0x01 / Switch: 77캜 (77; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:38:47] Max. Errors: Set fan control to 0x80, Result: OK
+[05.05.2020 22:38:47] Set to BIOS Mode, to many consecutive read errors
+[05.05.2020 22:38:49] Fan: 0x01 / Switch: 77캜 (77; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[05.05.2020 22:38:49] On close: Set fan control to 0x80, Result: OK
+[05.05.2020 22:38:49] Exiting ProcessDialog
+[06.05.2020 09:20:05] Current Config:
+[06.05.2020 09:20:05]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
+[06.05.2020 09:20:05]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
+[06.05.2020 09:20:05]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
+[06.05.2020 09:20:05]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
+[06.05.2020 09:20:05]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
+[06.05.2020 09:20:05]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
+[06.05.2020 09:20:05]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
+[06.05.2020 09:20:05]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
+[06.05.2020 09:20:05]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
 
-[4/5/18 2:55:01 PM] Windows uptime since boot 22391 sec., SecWinUptime= 0 sec.
-[4/5/18 2:55:23 PM] Change Mode from BIOS->Manual, setting fan speed
-[4/5/18 2:55:24 PM] Fan: 0x80 / Switch: 127째F (127;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:55:24 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:55:39 PM] Change Mode from Manual->Smart, recalculate fan speed
-[4/5/18 2:55:39 PM] Fan: 0x00 / Switch: 122째F (122;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:55:39 PM] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[4/5/18 2:55:46 PM] Change Mode from Smart->Manual, setting fan speed
-[4/5/18 2:55:46 PM] Fan: 0x01 / Switch: 111째F (111;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:55:46 PM] Manual: Set fan control to 0x00, Result: OK
-[4/5/18 2:56:01 PM] Change Mode from Manual->BIOS, setting fan speed
-[4/5/18 2:56:01 PM] Fan: 0x00 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:01 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:56:29 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:56:30 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:30 PM] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[4/5/18 2:56:32 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:56:33 PM] Fan: 0x00 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:33 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:56:46 PM] Change Mode from BIOS->Smart, recalculate fan speed
-[4/5/18 2:56:46 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:46 PM] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[4/5/18 2:56:50 PM] Change Mode from Smart->BIOS, setting fan speed
-[4/5/18 2:56:51 PM] Fan: 0x00 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:51 PM] BIOS: Set fan control to 0x80, Result: OK
-[4/5/18 2:56:53 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:56:53 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:56:53 PM] Exiting ProcessDialog
-[4/5/18 2:57:05 PM] Current Config:
-[4/5/18 2:57:05 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:57:05 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:57:05 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:57:05 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:57:05 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:57:05 PM]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:57:05 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:57:05 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:57:05 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
-
-[4/5/18 2:57:06 PM] Windows uptime since boot 22516 sec., SecWinUptime= 0 sec.
-[4/5/18 2:57:14 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:57:14 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:57:14 PM] Exiting ProcessDialog
-[4/5/18 2:57:57 PM] Current Config:
-[4/5/18 2:57:57 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:57:57 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:57:57 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:57:57 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:57:57 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:57:57 PM]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:57:57 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:57:57 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:57:57 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
-
-[4/5/18 2:57:57 PM] Windows uptime since boot 22568 sec., SecWinUptime= 0 sec.
-[4/5/18 2:58:03 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:58:03 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:58:03 PM] Exiting ProcessDialog
-[4/5/18 2:59:13 PM] Current Config:
-[4/5/18 2:59:13 PM]   Active= 1, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:59:13 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:59:13 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:59:13 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:59:13 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:59:13 PM]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:59:13 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:59:13 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:59:13 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
-
-[4/5/18 2:59:13 PM] Windows uptime since boot 22643 sec., SecWinUptime= 0 sec.
-[4/5/18 2:59:35 PM] Fan: 0x80 / Switch: 109째F (109;0;0;0;0;0;0;0;0;0;0;0)
-[4/5/18 2:59:35 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 2:59:35 PM] Exiting ProcessDialog
-[4/5/18 2:59:47 PM] Current Config:
-[4/5/18 2:59:47 PM]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[4/5/18 2:59:47 PM]   IconLevels= 131 149 158, NoExtSensor= 0, Lev64Norm= 1
-[4/5/18 2:59:47 PM]   Log2File= 1, Log2csv= 1, ShowAll= 0, IconColorFan= 1
-[4/5/18 2:59:47 PM]   100캟->0, 120캟->1, 130캟->3, 140캟->7
-[4/5/18 2:59:47 PM]   150캟->0, 160캟->1, 170캟->3, 180캟->7
-[4/5/18 2:59:47 PM]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캟
-[4/5/18 2:59:47 PM]   IgnoreSensors= no5, ProcessPriority= 2, IconCycle= 1
-[4/5/18 2:59:47 PM]   BluetoothEDR= 0, NoWaitMessage= 1, ShowBiasedTemps= 1
-[4/5/18 2:59:47 PM]   ManModeExit= 162, SecWinUptime= 0, SecStartDelay= 0
-
-[4/5/18 2:59:47 PM] Windows uptime since boot 22678 sec., SecWinUptime= 0 sec.
-[4/5/18 2:59:47 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:47 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:47 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:48 PM] Warning: can't read Status, read error count = 0
-[4/5/18 2:59:48 PM] We will close to BIOS-Mode after 10 consecutive read errors
-[4/5/18 2:59:52 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:52 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:52 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:53 PM] Warning: can't read Status, read error count = 1
-[4/5/18 2:59:53 PM] We will close to BIOS-Mode after 10 consecutive read errors
-[4/5/18 2:59:57 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:57 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:57 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 2:59:58 PM] Warning: can't read Status, read error count = 2
-[4/5/18 2:59:58 PM] We will close to BIOS-Mode after 10 consecutive read errors
-[4/5/18 3:00:02 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:02 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:02 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:03 PM] Warning: can't read Status, read error count = 3
-[4/5/18 3:00:03 PM] We will close to BIOS-Mode after 10 consecutive read errors
-[4/5/18 3:00:07 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:07 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:07 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:08 PM] Warning: can't read Status, read error count = 4
-[4/5/18 3:00:08 PM] We will close to BIOS-Mode after 10 consecutive read errors
-[4/5/18 3:00:12 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:12 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:12 PM] failed to read temps , EC is not ready for TWR
-[4/5/18 3:00:13 PM] Warning: can't read Status, read error count = 5
-[4/5/18 3:00:13 PM] We will close to BIOS-Mode after 10 consecutive read errors
-
-[4/5/18 3:00:15 PM] On close: Set fan control to 0x80, Result: OK
-[4/5/18 3:00:15 PM] Exiting ProcessDialog
-[05.05.2020 20:06:23] Current Config:
-[05.05.2020 20:06:23]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:06:23]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:06:23]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:06:23]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:06:23]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:06:23]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:06:23]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:06:23]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:06:23]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:06:23] Windows uptime since boot 104723 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:06:24] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:06:24] Fan: 0x01 / Switch: 50캜 (50; 44; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:06:24] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[05.05.2020 20:14:18] Current Config:
-[05.05.2020 20:14:18]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:14:18]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:14:18]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:14:18]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:14:18]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:14:18]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:14:18]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:14:18]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:14:18]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:14:18] Windows uptime since boot 244 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:14:19] failed to read TEMP0 byte from EC
-[05.05.2020 20:14:19] failed to read TEMP0 byte from EC
-[05.05.2020 20:14:20] failed to read TEMP0 byte from EC
-[05.05.2020 20:14:20] Warning: can't read Status, read error count = 0
-[05.05.2020 20:14:20] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:14:23] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:14:24] Fan: 0x80 / Switch: 63캜 (63; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:14:24] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[05.05.2020 20:14:24] failed to read TEMP0 byte from EC
-[05.05.2020 20:14:25] failed to read TEMP0 byte from EC
-[05.05.2020 20:14:29] failed to read TEMP1 byte from EC
-[05.05.2020 20:14:29] failed to read TEMP0 byte from EC
-[05.05.2020 20:15:44] Fan: 0x00 / Switch: 76캜 (76; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:15:44] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:15:59] Fan: 0x01 / Switch: 54캜 (54; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:15:59] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[05.05.2020 20:18:38] Current Config:
-[05.05.2020 20:18:38]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:18:38]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:18:38]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:18:38]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:18:38]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:18:38]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:18:38]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:18:38]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:18:38]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:18:38] Windows uptime since boot 504 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:18:39] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:18:44] Fan: 0x00 / Switch: 78캜 (78; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:18:44] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[05.05.2020 20:18:59] Fan: 0x03 / Switch: 73캜 (73; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:18:59] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:19:24] Fan: 0x01 / Switch: 52캜 (52; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:19:24] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[05.05.2020 20:21:36] Current Config:
-[05.05.2020 20:21:36]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:21:36]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:21:36]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:21:36]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:21:36]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:21:36]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:21:36]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:21:36]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:21:36]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:21:36] Windows uptime since boot 682 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:21:36] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:23:07] Fan: 0x00 / Switch: 76캜 (76; 56; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:23:07] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:23:12] Fan: 0x01 / Switch: 78캜 (78; 58; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:23:12] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[05.05.2020 20:23:21] failed to read TEMP0 byte from EC
-[05.05.2020 20:23:26] failed to read TEMP1 byte from EC
-[05.05.2020 20:23:27] failed to read TEMP0 byte from EC
-[05.05.2020 20:23:28] failed to read TEMP0 byte from EC
-[05.05.2020 20:23:28] Warning: can't read Status, read error count = 0
-[05.05.2020 20:23:28] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:23:47] Fan: 0x03 / Switch: 75캜 (75; 64; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:23:47] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:23:57] Fan: 0x01 / Switch: 81캜 (81; 63; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:23:57] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[05.05.2020 20:24:31] failed to read TEMP0 byte from EC
-[05.05.2020 20:24:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:24:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:24:33] Warning: can't read Status, read error count = 0
-[05.05.2020 20:24:33] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:24:37] Fan: 0x03 / Switch: 73캜 (73; 71; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:24:37] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:24:57] Fan: 0x01 / Switch: 78캜 (78; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:24:57] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[05.05.2020 20:25:11] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:12] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:12] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:13] Warning: can't read Status, read error count = 0
-[05.05.2020 20:25:13] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:16] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:17] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:17] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:18] Warning: can't read Status, read error count = 1
-[05.05.2020 20:25:18] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:21] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:22] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:22] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:23] Warning: can't read Status, read error count = 2
-[05.05.2020 20:25:23] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:26] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:27] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:27] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:28] Warning: can't read Status, read error count = 3
-[05.05.2020 20:25:28] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:31] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:33] Warning: can't read Status, read error count = 4
-[05.05.2020 20:25:33] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:36] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:25:36] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:25:37] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:37] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:37] Warning: can't read Status, read error count = 5
-[05.05.2020 20:25:37] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:41] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:25:41] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:25:42] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:42] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:42] Warning: can't read Status, read error count = 6
-[05.05.2020 20:25:42] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:46] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:25:47] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:47] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:48] Warning: can't read Status, read error count = 7
-[05.05.2020 20:25:48] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:51] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:25:52] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:52] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:53] Warning: can't read Status, read error count = 8
-[05.05.2020 20:25:53] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:25:56] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:57] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:57] failed to read TEMP0 byte from EC
-[05.05.2020 20:25:58] Warning: can't read Status, read error count = 9
-[05.05.2020 20:25:58] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:01] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:02] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:02] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:03] Warning: can't read Status, read error count = 10
-[05.05.2020 20:26:03] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:03] Fan: 0x03 / Switch: 80캜 (80; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:26:03] Max. Errors: Set fan control to 0x80, Result: OK
-[05.05.2020 20:26:03] Set to BIOS Mode, to many consecutive read errors
-[05.05.2020 20:26:05] Fan: 0x03 / Switch: 80캜 (80; 73; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:26:05] On close: Set fan control to 0x80, Result: OK
-[05.05.2020 20:26:05] Exiting ProcessDialog
-[05.05.2020 20:26:30] Current Config:
-[05.05.2020 20:26:30]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:26:30]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:26:30]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:26:30]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:26:30]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:26:30]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:26:30]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:26:30]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:26:30]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:26:30] Windows uptime since boot 976 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:26:30] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:26:30] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:26:31] failed to read TEMP1 byte from EC
-[05.05.2020 20:26:31] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:26:32] Fan: 0x80 / Switch: 77캜 (77; 69; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:26:32] Smart: Set fan control to 0x01, Mode 1, Result: OK
-[05.05.2020 20:26:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:32] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:33] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:33] Warning: can't read Status, read error count = 0
-[05.05.2020 20:26:33] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:35] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:26:36] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:36] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:36] Warning: can't read Status, read error count = 1
-[05.05.2020 20:26:36] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:40] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:41] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:26:41] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:26:41] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:26:41] Warning: can't read Status, read error count = 2
-[05.05.2020 20:26:41] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:45] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:46] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:46] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:47] Warning: can't read Status, read error count = 3
-[05.05.2020 20:26:47] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:50] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:51] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:51] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:52] Warning: can't read Status, read error count = 4
-[05.05.2020 20:26:52] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:26:55] failed to read TEMP1 byte from EC
-[05.05.2020 20:26:56] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:56] failed to read TEMP0 byte from EC
-[05.05.2020 20:26:57] Warning: can't read Status, read error count = 5
-[05.05.2020 20:26:57] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:01] Fan: 0x01 / Switch: 80캜 (80; 68; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:27:01] Smart: Set fan control to 0x03, Mode 1, Result: OK
-[05.05.2020 20:27:01] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:02] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:02] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:03] Warning: can't read Status, read error count = 0
-[05.05.2020 20:27:03] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:05] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:06] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:06] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:07] Warning: can't read Status, read error count = 1
-[05.05.2020 20:27:07] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:10] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:11] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:11] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:12] Warning: can't read Status, read error count = 2
-[05.05.2020 20:27:12] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:15] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:16] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:16] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:17] Warning: can't read Status, read error count = 3
-[05.05.2020 20:27:17] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:20] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:21] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:21] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:22] Warning: can't read Status, read error count = 4
-[05.05.2020 20:27:22] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:25] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:26] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:26] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:27] Warning: can't read Status, read error count = 5
-[05.05.2020 20:27:27] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:30] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:31] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:31] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:32] Warning: can't read Status, read error count = 6
-[05.05.2020 20:27:32] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:35] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:36] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:36] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:37] Warning: can't read Status, read error count = 7
-[05.05.2020 20:27:37] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:40] failed to read TEMP1 byte from EC
-[05.05.2020 20:27:41] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:41] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:42] Warning: can't read Status, read error count = 8
-[05.05.2020 20:27:42] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:45] failed to read TEMP1 byte from EC
-[05.05.2020 20:27:46] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:46] failed to read TEMP1 byte from EC
-[05.05.2020 20:27:47] Warning: can't read Status, read error count = 9
-[05.05.2020 20:27:47] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:50] failed to read TEMP1 byte from EC
-[05.05.2020 20:27:51] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:51] failed to read TEMP0 byte from EC
-[05.05.2020 20:27:52] Warning: can't read Status, read error count = 10
-[05.05.2020 20:27:52] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:27:52] Fan: 0x01 / Switch: 80캜 (80; 68; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:27:52] Max. Errors: Set fan control to 0x80, Result: OK
-[05.05.2020 20:27:52] Set to BIOS Mode, to many consecutive read errors
-[05.05.2020 20:27:55] Fan: 0x01 / Switch: 80캜 (80; 68; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:27:55] On close: Set fan control to 0x80, Result: OK
-[05.05.2020 20:27:55] Exiting ProcessDialog
-[05.05.2020 20:39:51] Current Config:
-[05.05.2020 20:39:51]   Active= 2, Cycle= 5, FanBeep= 0 0, MaxReadErrors= 10
-[05.05.2020 20:39:51]   IconLevels= 50 70 90, NoExtSensor= 0, Lev64Norm= 1
-[05.05.2020 20:39:51]   Log2File= 1, Log2csv= 0, ShowAll= 0, IconColorFan= 1
-[05.05.2020 20:39:51]   Levels= 55캜 -> 0,  76캜 -> 1,  78캜 -> 3,  88캜 -> 7,  95캜 -> 64
-[05.05.2020 20:39:51]   Levels2= 70캜 -> 0,  90캜 -> 1,  100캜 -> 2,  110캜 -> 3,  130캜 -> 7,  150캜 -> 64,  170캜 -> 0x80
-[05.05.2020 20:39:51]   SensorOffset1-12= 0 0 0 0 0 0 0 0 0 0 0 0 캜
-[05.05.2020 20:39:51]   IgnoreSensors= , ProcessPriority= 2, IconCycle= 1
-[05.05.2020 20:39:51]   BluetoothEDR= 0, NoWaitMessage= 0, ShowBiasedTemps= 1
-[05.05.2020 20:39:51]   ManModeExit= 161, SecWinUptime= 0, SecStartDelay= 0
-
-[05.05.2020 20:39:51] Windows uptime since boot 1777 sec., SecWinUptime= 0 sec.
-[05.05.2020 20:39:51] Change Mode from BIOS->Smart, recalculate fan speed
-[05.05.2020 20:39:52] Fan: 0x80 / Switch: 69캜 (69; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:39:52] Smart: Set fan control to 0x00, Mode 1, Result: OK
-[05.05.2020 20:39:52] failed to read TEMP0 byte from EC
-[05.05.2020 20:39:53] failed to read TEMP0 byte from EC
-[05.05.2020 20:39:53] failed to read TEMP0 byte from EC
-[05.05.2020 20:39:53] Warning: can't read Status, read error count = 0
-[05.05.2020 20:39:53] We will close to BIOS-Mode after 10 consecutive read errors
-[05.05.2020 20:40:21] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:40:21] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:40:26] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:40:26] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:40:31] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:40:36] failed to read TEMP0 byte from EC
-[05.05.2020 20:41:51] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:41:51] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:41:56] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:41:56] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:42:01] failed to read FanSpeedLowByte from EC
-[05.05.2020 20:42:01] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:42:06] failed to read FanSpeedHighByte from EC
-[05.05.2020 20:42:11] failed to read TEMP1 byte from EC
-[05.05.2020 20:42:21] failed to read TEMP0 byte from EC
-[05.05.2020 20:42:22] failed to read TEMP0 byte from EC
-[05.05.2020 20:47:03] Fan: 0x00 / Switch: 58캜 (58; 0; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
-[05.05.2020 20:47:03] On close: Set fan control to 0x80, Result: OK
-[05.05.2020 20:47:03] Exiting ProcessDialog
+[06.05.2020 09:20:05] Windows uptime since boot 47391 sec., SecWinUptime= 0 sec.
+[06.05.2020 09:20:06] failed to read TEMP1 byte from EC
+[06.05.2020 09:20:06] failed to read TEMP0 byte from EC
+[06.05.2020 09:20:07] failed to read TEMP0 byte from EC
+[06.05.2020 09:20:07] Warning: can't read Status, read error count = 0
+[06.05.2020 09:20:07] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:20:11] Change Mode from BIOS->Smart, recalculate fan speed
+[06.05.2020 09:20:11] Fan: 0x80 / Switch: 60캜 (60; 53; 0; 0; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:20:11] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[06.05.2020 09:20:11] failed to read FanSpeedHighByte from EC
+[06.05.2020 09:20:12] failed to read TEMP0 byte from EC
+[06.05.2020 09:20:12] failed to read TEMP0 byte from EC
+[06.05.2020 09:20:12] Warning: can't read Status, read error count = 0
+[06.05.2020 09:20:12] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:20:41] failed to read TEMP0 byte from EC
+[06.05.2020 09:22:34] Change Mode from Smart->BIOS, setting fan speed
+[06.05.2020 09:22:34] Fan: 0x00 / Switch: 67캜 (67; 63; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:22:34] BIOS: Set fan control to 0x80, Result: OK
+[06.05.2020 09:22:35] Change Mode from BIOS->Smart, recalculate fan speed
+[06.05.2020 09:22:36] Fan: 0x80 / Switch: 67캜 (67; 63; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:22:36] Smart: Set fan control to 0x00, Mode 1, Result: OK
+[06.05.2020 09:22:56] Fan: 0x00 / Switch: 77캜 (77; 65; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:22:56] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[06.05.2020 09:22:57] Fan: 0x01 / Switch: 78캜 (78; 65; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:22:57] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[06.05.2020 09:23:01] Fan: 0x03 / Switch: 71캜 (71; 65; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:23:01] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[06.05.2020 09:23:36] Fan: 0x01 / Switch: 78캜 (78; 64; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:23:36] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[06.05.2020 09:23:41] Fan: 0x03 / Switch: 71캜 (71; 63; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:23:41] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[06.05.2020 09:24:51] Fan: 0x01 / Switch: 80캜 (80; 63; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:24:51] Smart: Set fan control to 0x03, Mode 1, Result: OK
+[06.05.2020 09:24:56] Fan: 0x03 / Switch: 75캜 (75; 62; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:24:56] Smart: Set fan control to 0x01, Mode 1, Result: OK
+[06.05.2020 09:25:26] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:26] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:27] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:27] Warning: can't read Status, read error count = 0
+[06.05.2020 09:25:27] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:31] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:31] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:32] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:32] Warning: can't read Status, read error count = 1
+[06.05.2020 09:25:32] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:36] failed to read TEMP1 byte from EC
+[06.05.2020 09:25:36] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:37] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:37] Warning: can't read Status, read error count = 2
+[06.05.2020 09:25:37] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:41] failed to read TEMP1 byte from EC
+[06.05.2020 09:25:41] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:42] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:42] Warning: can't read Status, read error count = 3
+[06.05.2020 09:25:42] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:46] failed to read TEMP1 byte from EC
+[06.05.2020 09:25:46] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:47] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:47] Warning: can't read Status, read error count = 4
+[06.05.2020 09:25:47] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:51] failed to read TEMP1 byte from EC
+[06.05.2020 09:25:51] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:52] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:52] Warning: can't read Status, read error count = 5
+[06.05.2020 09:25:52] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:25:55] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:56] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:56] failed to read TEMP0 byte from EC
+[06.05.2020 09:25:57] Warning: can't read Status, read error count = 6
+[06.05.2020 09:25:57] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:26:00] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:03] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:01] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:05] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:07] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:09] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:11] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:13] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:15] Could not acquire mutex to read BT/TL status
+[06.05.2020 09:26:15] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:15] Warning: can't read Status, read error count = 7
+[06.05.2020 09:26:15] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:26:16] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:16] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:17] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:17] Warning: can't read Status, read error count = 8
+[06.05.2020 09:26:17] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:26:21] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:21] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:22] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:22] Warning: can't read Status, read error count = 9
+[06.05.2020 09:26:22] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:26:26] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:26] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:27] failed to read TEMP0 byte from EC
+[06.05.2020 09:26:27] Warning: can't read Status, read error count = 10
+[06.05.2020 09:26:27] We will close to BIOS-Mode after 10 consecutive read errors
+[06.05.2020 09:26:27] Fan: 0x01 / Switch: 74캜 (74; 62; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:26:27] Max. Errors: Set fan control to 0x80, Result: OK
+[06.05.2020 09:26:27] Set to BIOS Mode, to many consecutive read errors
+[06.05.2020 09:26:30] Fan: 0x01 / Switch: 74캜 (74; 62; 0; 1; 0; 0; 0; 0; 0; 0; 1; 0;)
+[06.05.2020 09:26:30] On close: Set fan control to 0x80, Result: OK
+[06.05.2020 09:26:30] Exiting ProcessDialog

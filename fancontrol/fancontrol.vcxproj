@@ -196,6 +196,7 @@
     <ResourceCompile Include="res\fancontrol.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.gitignore" />
     <None Include="res\resource" />
   </ItemGroup>
   <ItemGroup>
