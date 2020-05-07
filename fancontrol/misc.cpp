@@ -690,13 +690,20 @@ BOOL FANCONTROL::IsMinimized(void)
 //-------------------------------------------------------------------------
 //  show trace output in lower window part
 //-------------------------------------------------------------------------
+char buf[1] = "";
+void FANCONTROL::Trace(int num)
+{
+	Trace(itoa(num, buf, 10));
+}
+
+
 void FANCONTROL::Trace(const char *text)
 {
 	char trace[16384]= "", datebuf[128]= "", line[256]= "", linecsv[256]= "";
 
 	this->CurrentDateTimeLocalized(datebuf, sizeof(datebuf));
 
-    if (strlen(text)) 
+    if (strlen(text))
 		sprintf_s(line,sizeof(line), "[%s] %s\r\n", datebuf, text);	// probably acpi reading conflict
 	else
 		strcpy_s(line,sizeof(line), "\r\n");
@@ -707,20 +714,18 @@ void FANCONTROL::Trace(const char *text)
 	//
 	// display 100 lines max
 	//
-	char *p= trace + strlen(trace);
+	char *p = trace + strlen(trace);
 	int linecount= 0;
 
-	while (p>= trace)
+	while (p >= trace)
 	{
-		if (*p=='\n')
+		if (*p == '\n')
 		{
 			linecount++;
-			if (linecount>100) break;
+			if (linecount > 100) break;
 		}
-
 		p--;
 	}
-
 
 	// 
 	// write logfile

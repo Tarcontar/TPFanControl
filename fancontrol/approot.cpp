@@ -263,9 +263,6 @@ void WorkerThread(void *dummy)
         }
     }
 
-    // 
-    // Get going ...
-    //
     // TVicPort driver (http://www.entechtaiwan.com/dev/port/index.shtm)
 
     bool ok = false;
@@ -289,8 +286,6 @@ void WorkerThread(void *dummy)
 
         FANCONTROL fc(hInstApp);
 
-        fc.Test();
-
         g_dialogWnd = fc.GetDialogWnd();
 
         fc.ProcessDialog();
@@ -298,7 +293,8 @@ void WorkerThread(void *dummy)
         ::PostMessage(g_dialogWnd, WM_COMMAND, 5020, 0);
         CloseTVicPort();
     }
-    else {
+    else
+    {
         ::MessageBox(HWND_DESKTOP, 
             "Error during initialization of Port Driver.\r\n"
             "(tvicport.sys missing in app folder or failed to load)",
@@ -310,7 +306,7 @@ void WorkerThread(void *dummy)
 void debug(const char *msg)
 {
     FILE *flog;
-    errno_t errflog = fopen_s(&flog,"fancontrol_debug.log", "ab");
+    errno_t errflog = fopen_s(&flog, "fancontrol_debug.log", "ab");
     if (!errflog)
     {
         fwrite(msg, strlen(msg), 1, flog); 

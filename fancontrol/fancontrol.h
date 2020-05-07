@@ -219,6 +219,7 @@ class FANCONTROL
 
 		// misc.cpp
 		int ReadConfig(const char *filename);
+		void Trace(int num);
 		void Trace(const char *text);
 		void Tracecsv(const char *textcsv);
 		void Tracecsvod(const char *textcsv);
@@ -236,8 +237,6 @@ class FANCONTROL
 	public:
 		FANCONTROL(HINSTANCE hinstapp);
 		~FANCONTROL();
-
-		void Test(void);
 
 		int ProcessDialog();
 
