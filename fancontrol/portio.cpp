@@ -4,14 +4,14 @@
 //
 // --------------------------------------------------------------
 //
-//	This program and source code is in the public domain.
+//  This program and source code is in the public domain.
 //
-//	The author claims no copyright, copyleft, license or
-//	whatsoever for the program itself (with exception of
-//	WinIO driver).  You may use, reuse or distribute it's 
-//	binaries or source code in any desired way or form,  
-//	Useage of binaries or source shall be entirely and 
-//	without exception at your own risk. 
+//  The author claims no copyright, copyleft, license or
+//  whatsoever for the program itself (with exception of
+//  WinIO driver).  You may use, reuse or distribute it's 
+//  binaries or source code in any desired way or form,  
+//  Useage of binaries or source shall be entirely and 
+//  without exception at your own risk. 
 // 
 // --------------------------------------------------------------
 
@@ -44,104 +44,102 @@ logbuf[8192] = "";
 
 int WaitForEmptyBuffers()
 {
-	int i = 0;
-	char data = -1;
+    int i = 0;
+    char data = -1;
 
-	do
-	{
-		data = (char)ReadPort(EC_CTRLPORT) & 0xff;
-		if (i++ >= trys) return 0;
-		::Sleep(iTick);
-	}
-	while (data & (EC_INPUT_BUFF_FULL | EC_OUTPUT_BUFF_FULL));
+    do
+    {
+        data = (char)ReadPort(EC_CTRLPORT) & 0xff;
+        if (i++ >= trys) return 0;
+        ::Sleep(iTick);
+    } while (data & (EC_INPUT_BUFF_FULL | EC_OUTPUT_BUFF_FULL));
 
-	return data;
+    return data;
 }
 
 int WaitForEmptyOutputBuffer()
 {
-	int data = -1;
-	int i = 0;
+    int data = -1;
+    int i = 0;
 
-	do
-	{
-		data = (char)ReadPort(EC_CTRLPORT) & 0xff;
-		if (i++ == trys) return 0;
-		::Sleep(iTick);
-	} while (data & EC_OUTPUT_BUFF_FULL);
+    do
+    {
+        data = (char)ReadPort(EC_CTRLPORT) & 0xff;
+        if (i++ == trys) return 0;
+        ::Sleep(iTick);
+    } while (data & EC_OUTPUT_BUFF_FULL);
 
-	return 1;
+    return 1;
 }
 
 void SetReadPosition(int port, int position = EC_CTRLPORT_READ)
 {
-	WritePort(port, position);
+    WritePort(port, position);
 }
 
 void SetWritePosition(int port, int position)
 {
-	WritePort(port, position);
+    WritePort(port, position);
 }
 
 int PortReady()
 {
-	SetReadPosition(EC_CTRLPORT);
-	int data = WaitForEmptyBuffers();
-	if (data & EC_OUTPUT_BUFF_FULL) ReadPort(EC_DATAPORT);
-	return WaitForEmptyBuffers();
+    SetReadPosition(EC_CTRLPORT);
+    int data = WaitForEmptyBuffers();
+    if (data & EC_OUTPUT_BUFF_FULL) ReadPort(EC_DATAPORT);
+    return WaitForEmptyBuffers();
 }
 
 int WaitForFullOutputBuffer()
 {
-	int data = -1;
-	int i = 0;
+    int data = -1;
+    int i = 0;
 
-	do
-	{
-		data = (char)ReadPort(EC_CTRLPORT) & 0xff;
-		if (i++ == trys * 10) return 0;
-		::Sleep(iTick);
-	}
-	while (!(data & EC_OUTPUT_BUFF_FULL));
+    do
+    {
+        data = (char)ReadPort(EC_CTRLPORT) & 0xff;
+        if (i++ == trys * 10) return 0;
+        ::Sleep(iTick);
+    } while (!(data & EC_OUTPUT_BUFF_FULL));
 
-	return 1;
+    return 1;
 }
 
-int FANCONTROL::ReadByteFromEC(int offset, char *pdata)
+int FANCONTROL::ReadByteFromEC(int offset, char* pdata)
 {
-	int data = PortReady();
-	if (!data) return 0;
+    int data = PortReady();
+    if (!data) return 0;
 
-	SetReadPosition(EC_DATAPORT, offset);
+    SetReadPosition(EC_DATAPORT, offset);
 
-	if (!(data & EC_OUTPUT_BUFF_FULL) && !WaitForFullOutputBuffer()) return -1;
+    if (!(data & EC_OUTPUT_BUFF_FULL) && !WaitForFullOutputBuffer()) return -1;
 
-	*pdata = ReadPort(EC_DATAPORT);
+    *pdata = ReadPort(EC_DATAPORT);
 
-	//if (logbuf_verbosity > 0) sprintf(logbuf + strlen(logbuf), "readec: offset= %x, data= %02x\n", offset, *pdata);
-	return 1;
+    //if (logbuf_verbosity > 0) sprintf(logbuf + strlen(logbuf), "readec: offset= %x, data= %02x\n", offset, *pdata);
+    return 1;
 }
 
 int FANCONTROL::WriteByteToEC(int offset, char NewData)
 {
-	WaitForEmptyBuffers();
-	if (!WaitForEmptyOutputBuffer())
-	{
-		return 0;
-	}
-	//if (!PortReady()) return 0;
+    WaitForEmptyBuffers();
+    if (!WaitForEmptyOutputBuffer())
+    {
+        return 0;
+    }
+    //if (!PortReady()) return 0;
 
-	WritePort(EC_CTRLPORT, EC_CTRLPORT_WRITE);
-	WaitForEmptyBuffers();
+    WritePort(EC_CTRLPORT, EC_CTRLPORT_WRITE);
+    WaitForEmptyBuffers();
 
-	SetWritePosition(EC_DATAPORT, offset);
+    SetWritePosition(EC_DATAPORT, offset);
 
-	/*if (!WaitForEmptyBuffers())
-	{
-		return 0;
-	}*/
- 
-	WritePort(EC_DATAPORT, NewData);
+    /*if (!WaitForEmptyBuffers())
+    {
+        return 0;
+    }*/
 
-	return 1;
+    WritePort(EC_DATAPORT, NewData);
+
+    return 1;
 }

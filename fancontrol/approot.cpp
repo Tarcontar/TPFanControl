@@ -1,24 +1,23 @@
-﻿
-#include "_prec.h"
+﻿#include "_prec.h"
 #include "approot.h"
 #include "fancontrol.h"
 #include "TVicPort.h"
 
-int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int) 
+int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
 {
     hInstRes = instance;
     hInstApp = instance;
 
-	HANDLE hLock = CreateMutex(NULL, FALSE, "TPFanControlMutex01");
+    HANDLE hLock = CreateMutex(NULL, FALSE, "TPFanControlMutex01");
 
     if (hLock == NULL)
     {
         DWORD ec = GetLastError();
         ShowError(ec, "program or service already running");
-	    return ec;
+        return ec;
     }
 
-    if(WAIT_OBJECT_0 != WaitForSingleObject(hLock, 0))
+    if (WAIT_OBJECT_0 != WaitForSingleObject(hLock, 0))
     {
         DWORD ec = GetLastError();
         ShowError(ec, "program or service already running");
@@ -30,28 +29,28 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
         bool install = false;
         bool uninstall = false;
         bool quiet = false;
-		bool debug = false;
-		bool run = false;
-        char *args = aArgs;
+        bool debug = false;
+        bool run = false;
+        char* args = aArgs;
 
         while (*args)
         {
             if (*args == '-' || *args == '/')
             {
                 ++args;
-				switch (*args)
-				{
-				    case 'i':
-				    case 'I': install = true; break;
-				    case 'u':
-				    case 'U': uninstall = true; break;
-				    case 'q':
-				    case 'Q': quiet = true; break;
-				    case 'd':
-				    case 'D': debug = true; break;
-				    case 's':
-				    case 'S': run = true; break;
-				    default: ShowHelp(); return -1;
+                switch (*args)
+                {
+                case 'i':
+                case 'I': install = true; break;
+                case 'u':
+                case 'U': uninstall = true; break;
+                case 'q':
+                case 'Q': quiet = true; break;
+                case 'd':
+                case 'D': debug = true; break;
+                case 's':
+                case 'S': run = true; break;
+                default: ShowHelp(); return -1;
                 }
                 ++args;
             }
@@ -62,7 +61,7 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
                 return -1;
             }
         }
-        
+
         if (install) return InstallService(quiet);
         if (uninstall) return UninstallService(quiet);
 
@@ -73,7 +72,7 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
         }
         if (run)
         {
-            //	??? HANDLE hLockS = CreateMutex(NULL,FALSE,"TPFanControlMutex02");
+            //  ??? HANDLE hLockS = CreateMutex(NULL,FALSE,"TPFanControlMutex02");
             SERVICE_TABLE_ENTRY svcEntry[2];
             svcEntry[0].lpServiceName = g_ServiceName;
             svcEntry[0].lpServiceProc = ServiceMain;
@@ -111,7 +110,7 @@ DWORD InstallService(bool quiet)
     // sprintf_s(ExePath,sizeof(ExePath)," -s");
 
     SC_HANDLE svc = CreateService(SCMgr, g_ServiceName, g_ServiceName, SERVICE_ALL_ACCESS,
-        SERVICE_WIN32_OWN_PROCESS | SERVICE_INTERACTIVE_PROCESS, SERVICE_AUTO_START, SERVICE_ERROR_NORMAL, 
+        SERVICE_WIN32_OWN_PROCESS | SERVICE_INTERACTIVE_PROCESS, SERVICE_AUTO_START, SERVICE_ERROR_NORMAL,
         ExePath, NULL, NULL, NULL, NULL, NULL);
 
     if (!svc)
@@ -153,9 +152,9 @@ DWORD UninstallService(bool quiet)
     return 0;
 }
 
-void ShowError(DWORD ec, const char *description) 
-{ 
-    char *msgBuf;
+void ShowError(DWORD ec, const char* description)
+{
+    char* msgBuf;
 
     FormatMessage(
         FORMAT_MESSAGE_ALLOCATE_BUFFER |
@@ -163,18 +162,18 @@ void ShowError(DWORD ec, const char *description)
         NULL,
         ec,
         MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-        (LPTSTR) &msgBuf,
-        0, NULL );
+        (LPTSTR)&msgBuf,
+        0, NULL);
 
     size_t dispBuf_len = strlen(msgBuf) + strlen(description) + 40;
-    char *dispBuf = (char *)LocalAlloc(LMEM_ZEROINIT, dispBuf_len);
+    char* dispBuf = (char*)LocalAlloc(LMEM_ZEROINIT, dispBuf_len);
     sprintf_s(dispBuf, dispBuf_len, "%s, error code %d: %s", description, ec, msgBuf);
     MessageBox(NULL, dispBuf, "Error", MB_OK);
     LocalFree(msgBuf);
     LocalFree(dispBuf);
 }
 
-void ShowMessage(const char *title, const char *description) 
+void ShowMessage(const char* title, const char* description)
 {
     MessageBox(NULL, description, title, MB_OK);
 }
@@ -193,7 +192,7 @@ VOID WINAPI ServiceMain(DWORD aArgc, LPTSTR* aArgv)
     SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
     StartWorkerThread();
-    
+
     g_SvcStatus.dwCurrentState = SERVICE_RUNNING;
     SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
@@ -202,14 +201,14 @@ VOID WINAPI ServiceMain(DWORD aArgc, LPTSTR* aArgv)
 
 VOID WINAPI Handler(DWORD fdwControl)
 {
-    switch(fdwControl)
+    switch (fdwControl)
     {
     case SERVICE_CONTROL_STOP:
-        g_SvcStatus.dwCurrentState   = SERVICE_STOP_PENDING;
+        g_SvcStatus.dwCurrentState = SERVICE_STOP_PENDING;
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
         StopWorkerThread();
-        g_SvcStatus.dwCurrentState   = SERVICE_STOPPED;
+        g_SvcStatus.dwCurrentState = SERVICE_STOPPED;
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
         break;
@@ -231,12 +230,12 @@ void StopWorkerThread()
     ::CloseHandle(g_workerThread);
 }
 
-void WorkerThread(void *dummy)
+void WorkerThread(void* dummy)
 {
-    char curdir[MAX_PATH]= "";
+    char curdir[MAX_PATH] = "";
 
-    hInstRes=GetModuleHandle(NULL);
-    hInstApp=hInstRes;
+    hInstRes = GetModuleHandle(NULL);
+    hInstApp = hInstRes;
 
     ::InitCommonControls();
 
@@ -245,7 +244,7 @@ void WorkerThread(void *dummy)
     *exepath = '\0';
     if (GetModuleFileName(NULL, exepath, MAX_PATH))
     {
-        char *p = exepath + strlen(exepath) - 1;
+        char* p = exepath + strlen(exepath) - 1;
         while (p > exepath)
         {
             if (*p == '\\')
@@ -290,21 +289,21 @@ void WorkerThread(void *dummy)
     }
     else
     {
-        ::MessageBox(HWND_DESKTOP, 
+        ::MessageBox(HWND_DESKTOP,
             "Error during initialization of Port Driver.\r\n"
             "(tvicport.sys missing in app folder or failed to load)",
-            "Fan Control", 
+            "Fan Control",
             MB_ICONERROR | MB_OK | MB_SETFOREGROUND);
     }
 }
 
-void debug(const char *msg)
+void debug(const char* msg)
 {
-    FILE *flog;
+    FILE* flog;
     errno_t errflog = fopen_s(&flog, "fancontrol_debug.log", "ab");
     if (!errflog)
     {
-        fwrite(msg, strlen(msg), 1, flog); 
+        fwrite(msg, strlen(msg), 1, flog);
         fclose(flog);
     }
 }

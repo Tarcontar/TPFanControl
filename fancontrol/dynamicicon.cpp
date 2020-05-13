@@ -1,9 +1,9 @@
 ﻿#include "_prec.h"
-#include "DynamicIcon.h"
+#include "dynamicicon.h"
 #include <string.h>
 
 
-CDynamicIcon::CDynamicIcon(const char *line1,const char *line2, const int iFarbeIconA, const int iFontIconA)
+CDynamicIcon::CDynamicIcon(const char *line1, const char *line2, const int iFarbeIconA, const int iFontIconA)
 {
     //3 chars per line
     char _line1[4],_line2[4];
@@ -166,7 +166,3 @@ HFONT CDynamicIcon::CreateFont(const HDC hDC)
  
     return CreateFontIndirect(&lf);
 };
-
-
-
-
