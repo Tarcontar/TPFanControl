@@ -28,8 +28,8 @@ int FANCONTROL::ReadConfig(const char *configfile)
 	int i, ok= false, lcnt= 0, lcnt2= 0;
 	int ProcessPriority = 2;
 
-	strncpy_s(this->MenuLabelSM1,sizeof(this->MenuLabelSM1), "Smart Level 1", 14);
-	strncpy_s(this->MenuLabelSM2,sizeof(this->MenuLabelSM1), "Smart Level 2", 14);
+	strncpy_s(this->MenuLabelSM1, sizeof(this->MenuLabelSM1), "Smart Level 1", 14);
+	strncpy_s(this->MenuLabelSM2, sizeof(this->MenuLabelSM1), "Smart Level 2", 14);
 
 	//TODO: memcpy
 	//for (i= 0; i<15; i++) {SensorOffset[i]=0;}
@@ -45,7 +45,7 @@ int FANCONTROL::ReadConfig(const char *configfile)
 	// read from file
 	//
 	FILE *f;
-    errno_t errf = fopen_s(&f,configfile, "r");
+    errno_t errf = fopen_s(&f, configfile, "r");
 	if (!errf)
 	{
 		while (!feof(f))
@@ -282,7 +282,7 @@ int FANCONTROL::ReadConfig(const char *configfile)
 				this->ShowTempIcon= atoi(buf+13);
 			}
 	
-			// Read SensorName		
+			// Read SensorName
 			else if (_strnicmp(buf, "SensorName1=", 12)==0)
 			{
 				strncpy_s(this->gSensorNames[0],sizeof(this->gSensorNames[0]), buf+12, 3);
@@ -398,13 +398,12 @@ int FANCONTROL::ReadConfig(const char *configfile)
 			}
 		}
 
-
 		fclose(f);
 
 		if (this->StayOnTop)
-			this->hwndDialog= ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9000), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
+			this->hwndDialog = ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9000), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
 		else
-			this->hwndDialog= ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9002), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
+			this->hwndDialog = ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9002), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
 
 		// end marker for smart levels array
 		if (lcnt)
@@ -421,18 +420,17 @@ int FANCONTROL::ReadConfig(const char *configfile)
 			this->SmartLevels2[lcnt2].fan2= 0x80;
 		}
 
-		ok= true;
+		ok = true;
 
-	this->Trace("Current Config:");
+		this->Trace("Current Config:");
 	}
-
 	else
 	{
 		this->Trace("TPFanControl.ini missing, default values:");
 	}
 
-	//if running as service Runs_as_service= TRUE
-	HANDLE hLockS = CreateMutex(NULL,FALSE,"TPFanControlMutex01");
+	//if running as service Runs_as_service = TRUE
+	HANDLE hLockS = CreateMutex(NULL, FALSE, "TPFanControlMutex01");
 	if(hLockS == NULL)Runs_as_service= TRUE;
 	if(WAIT_OBJECT_0 != WaitForSingleObject(hLockS,0)) Runs_as_service= TRUE; 
 	

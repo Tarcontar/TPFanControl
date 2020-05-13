@@ -308,15 +308,14 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 		}
 	}
 
-
 	// read config file
 	this->ReadConfig("TPFanControl.ini");
 
 	if (this->hwndDialog)
 	{
 		::GetWindowText(this->hwndDialog, this->Title, sizeof(this->Title));
-		strcat_s(this->Title,sizeof(this->Title), " V" FANCONTROLVERSION);
-		strcat_s(this->Title,sizeof(this->Title), this->Title3);
+		strcat_s(this->Title, sizeof(this->Title), " V" FANCONTROLVERSION);
+		strcat_s(this->Title, sizeof(this->Title), this->Title3);
 		::SetWindowText(this->hwndDialog, this->Title);
 
 		::SetWindowLong(this->hwndDialog, GWL_USERDATA, (ULONG)this);
@@ -327,8 +326,8 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 	
 	if(SlimDialog == 1)
 	{
-		if (this->StayOnTop) this->hwndDialog= ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9001), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
-		else this->hwndDialog= ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9003), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
+		if (this->StayOnTop) this->hwndDialog = ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9001), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
+		else this->hwndDialog = ::CreateDialogParam(hinstapp, MAKEINTRESOURCE(9003), HWND_DESKTOP, (DLGPROC)BaseDlgProc, (LPARAM)this);
 
 		if (this->hwndDialog)
 		{
@@ -347,7 +346,7 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 
 
 	//  wait xx seconds to start tpfc while booting to save icon
-	char bufsec[1024]= "";
+	char bufsec[1024] = "";
 	int tickCount = GetTickCount(); // +262144;
 
 	sprintf_s(bufsec, sizeof(bufsec), "Windows uptime since boot %d sec., SecWinUptime= %d sec.", tickCount/1000, SecWinUptime);
@@ -355,7 +354,7 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 
 	if ((tickCount / 1000) <= SecWinUptime)
 	{
-		sprintf_s(bufsec,sizeof(bufsec), "Save the icon by a start delay of %d seconds (SecStartDelay)", SecStartDelay);
+		sprintf_s(bufsec, sizeof(bufsec), "Save the icon by a start delay of %d seconds (SecStartDelay)", SecStartDelay);
 		this->Trace(bufsec);
 		if (!NoWaitMessage)
 		{
@@ -371,33 +370,31 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 	}
 		
 	// sleep until start time + delay time
-	if ((GetTickCount()/1000) <= (DWORD)SecWinUptime)
+	if ((GetTickCount() / 1000) <= (DWORD)SecWinUptime)
 	{ 
 		while ((DWORD) (tickCount + SecStartDelay*1000) >= GetTickCount()) Sleep(200);
 	}
 
-
 	// taskbaricon (keep code after reading config)
-
 	if (this->MinimizeToSysTray)
 	{
-   // da liegt der ICON-Hund begraben
+    // da liegt der ICON-Hund begraben
 		if (!this->ShowTempIcon)
 		{
-			this->pTaskbarIcon= new	TASKBARICON(this->hwndDialog, 10, "TPFanControl");
+			this->pTaskbarIcon = new TASKBARICON(this->hwndDialog, 10, "TPFanControl");
 		}
 		else
 		{
-			this->pTaskbarIcon= NULL;
+			this->pTaskbarIcon = NULL;
 		}
 	}
 
 	// read current fan control status and set mode buttons accordingly 
 
-	this->CurrentMode=this->ActiveMode;
+	this->CurrentMode = this->ActiveMode;
 
 	this->ModeToDialog(this->CurrentMode);
-	this->PreviousMode= 1;
+	this->PreviousMode = 1;
 
 	if (HK_BIOS_Method) RegisterHotKey(this->hwndDialog,1,HK_BIOS_Method,HK_BIOS);
 	if (HK_Smart_Method) RegisterHotKey(this->hwndDialog,2,HK_Smart_Method,HK_Smart); 
@@ -418,10 +415,10 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
 	// make it call HandleControl initially
 	::PostMessage(this->hwndDialog, WM__GETDATA, 0, 0);
 
-	m_fanTimer = ::SetTimer(this->hwndDialog, 1, this->Cycle*1000, NULL); // fan update
+	m_fanTimer = ::SetTimer(this->hwndDialog, 1, this->Cycle * 1000, NULL); // fan update
 	m_titleTimer = ::SetTimer(this->hwndDialog, 2, 500, NULL); // title update
-	m_iconTimer = ::SetTimer(this->hwndDialog, 3, this->IconCycle*1000, NULL); // Vista icon update
-	if(this->ReIcCycle) m_renewTimer = ::SetTimer(this->hwndDialog, 4, this->ReIcCycle*1000, NULL); // Vista icon update
+	m_iconTimer = ::SetTimer(this->hwndDialog, 3, this->IconCycle * 1000, NULL); // Vista icon update
+	if(this->ReIcCycle) m_renewTimer = ::SetTimer(this->hwndDialog, 4, this->ReIcCycle * 1000, NULL); // Vista icon update
 
 	if (!this->StartMinimized) ::ShowWindow(this->hwndDialog, TRUE);
 
@@ -484,8 +481,8 @@ int FANCONTROL::CurrentModeFromDialog()
 
 int FANCONTROL::ShowAllFromDialog()
 {
-	BOOL modefcauto= ::SendDlgItemMessage(this->hwndDialog, 7001, BM_GETCHECK, 0L, 0L),
-		modemanual= ::SendDlgItemMessage(this->hwndDialog, 7002, BM_GETCHECK, 0L, 0L);
+	BOOL modefcauto = ::SendDlgItemMessage(this->hwndDialog, 7001, BM_GETCHECK, 0L, 0L),
+		modemanual = ::SendDlgItemMessage(this->hwndDialog, 7002, BM_GETCHECK, 0L, 0L);
 
 	if (modefcauto) this->ShowAll= 1;
 	else
@@ -499,15 +496,15 @@ int FANCONTROL::ShowAllFromDialog()
 
 void FANCONTROL::ModeToDialog(int mode)
 {
-   ::SendDlgItemMessage(this->hwndDialog, 8300, BM_SETCHECK, mode==1, 0L);
-   ::SendDlgItemMessage(this->hwndDialog, 8301, BM_SETCHECK, mode==2, 0L);
-   ::SendDlgItemMessage(this->hwndDialog, 8302, BM_SETCHECK, mode==3, 0L);
+   ::SendDlgItemMessage(this->hwndDialog, 8300, BM_SETCHECK, mode == 1, 0L);
+   ::SendDlgItemMessage(this->hwndDialog, 8301, BM_SETCHECK, mode == 2, 0L);
+   ::SendDlgItemMessage(this->hwndDialog, 8302, BM_SETCHECK, mode == 3, 0L);
 }
 
 void FANCONTROL::ShowAllToDialog(int show)
 {
-   ::SendDlgItemMessage(this->hwndDialog, 7001, BM_SETCHECK, show==1, 0L);
-   ::SendDlgItemMessage(this->hwndDialog, 7002, BM_SETCHECK, show==0, 0L);
+   ::SendDlgItemMessage(this->hwndDialog, 7001, BM_SETCHECK, show == 1, 0L);
+   ::SendDlgItemMessage(this->hwndDialog, 7002, BM_SETCHECK, show == 0, 0L);
 }
 
 
@@ -517,9 +514,10 @@ void FANCONTROL::ShowAllToDialog(int show)
 int FANCONTROL::ProcessDialog()
 {
 	MSG qmsg, qmsg2;
-	int dlgrc= -1;
+	int dlgrc = -1;
 
-	if (this->hwndDialog) {
+	if (this->hwndDialog)
+	{
 		for (;;) 
 		{
 			BOOL nodlgmsg= FALSE;

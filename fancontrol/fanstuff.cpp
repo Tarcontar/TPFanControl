@@ -350,8 +350,6 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 	int ok = 0;
 	char obuf[256]= "", obuf2[256], datebuf[128];
 
-	this->Trace("start set fan speed");
-
 	if (this->FanBeepFreq && this->FanBeepDura) ::Beep(this->FanBeepFreq, this->FanBeepDura);
 
 	this->CurrentDateTimeLocalized(datebuf, sizeof(datebuf));
@@ -368,9 +366,10 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 		int ok_ecaccess = false;
 		for (int i = 0; i < 10; i++)
 		{
-			if ( ok_ecaccess = this->EcAccess.Lock(100))break;
+			if (ok_ecaccess = this->EcAccess.Lock(100)) break;
 			else ::Sleep(100);
 		}
+
 		if (!ok_ecaccess)
 		{
 			this->Trace("Could not acquire mutex to set fan state");
@@ -386,7 +385,7 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN1);
 		    ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
-			::Sleep(300);
+			::Sleep(100);
 
 		    // verify completion
 		    ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
@@ -395,19 +394,19 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
             if (this->State.FanCtrl == fanctrl) break;
 
-            ::Sleep(300);
+            ::Sleep(100);
         }
 
-		//
-		// Set FAN2 level
-		//
+		
+		 //Set FAN2 level
+		
 		for (int i = 0; i < 5; ++i)
 		{
 			// set new fan level
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN_SWITCH, TP_ECOFFSET_FAN2);
 			ok = this->WriteByteToEC(TP_ECOFFSET_FAN, fanctrl);
 
-			::Sleep(300);
+			::Sleep(100);
 
 			// verify completion
 			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
@@ -415,7 +414,7 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 			ok = this->ReadByteFromEC(TP_ECOFFSET_FAN, &this->State.FanCtrl);
 
 			if (this->State.FanCtrl == fanctrl) break;
-			::Sleep(300);
+			::Sleep(100);
 		}
 
 		this->EcAccess.Unlock();
@@ -446,7 +445,6 @@ int FANCONTROL::SetFan(const char *source, int fanctrl, BOOL final)
 
 	if (!final) ::PostMessage(this->hwndDialog, WM__GETDATA, 0, 0);
 
-	this->Trace("finished set fan speed");
 	return ok;
 }
 
@@ -556,18 +554,14 @@ int FANCONTROL::ReadEcStatus(FCSTATE *pfcstate)
             }
         }
  */       
-		if (ok) break;
+        if (ok) break;
         ::Sleep(200);
     }
 
-	this->EcAccess.Unlock();
+    this->EcAccess.Unlock();
 
-	if (ok)
-	{
-		memcpy(pfcstate, &sample, sizeof(*pfcstate));
-	}
-
-	return ok;
+    if (ok) memcpy(pfcstate, &sample, sizeof(*pfcstate));
+    return ok;
 }
 
 
@@ -581,11 +575,11 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 	pfcstate->FanCtrl = -1;
 	memset(pfcstate->Sensors, 0, sizeof(pfcstate->Sensors));
 
-	if (!ReadByteFromEC(TP_ECOFFSET_FAN, &pfcstate->FanCtrl))
+	if (ReadByteFromEC(TP_ECOFFSET_FAN, &pfcstate->FanCtrl) != 1)
 		this->Trace("failed to read FanCtrlByte from EC");
-	else if (!ReadByteFromEC(TP_ECOFFSET_FANSPEED, &pfcstate->FanSpeedLo))
+	else if (ReadByteFromEC(TP_ECOFFSET_FANSPEED, &pfcstate->FanSpeedLo) != 1)
 		this->Trace("failed to read FanSpeedLowByte from EC");
-	else if (!ReadByteFromEC(TP_ECOFFSET_FANSPEED + 1, &pfcstate->FanSpeedHi))
+	else if (ReadByteFromEC(TP_ECOFFSET_FANSPEED + 1, &pfcstate->FanSpeedHi) != 1)
 		this->Trace("failed to read FanSpeedHighByte from EC");
 
 	if (!this->UseTWR)
@@ -593,10 +587,13 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 		idxtemp = 0;
 		for (i = 0; i < 8; i++)
 		{	// temp sensors 0x78 - 0x7f
-			if (!ReadByteFromEC(TP_ECOFFSET_TEMP0 + i, &pfcstate->Sensors[idxtemp]))
+			int result = ReadByteFromEC(TP_ECOFFSET_TEMP0 + i, &pfcstate->Sensors[idxtemp]);
+			if (result != 1)
 			{
 				this->Trace("failed to read TEMP0 byte from EC");
 				this->Trace(i);
+				this->Trace(this->gSensorNames[idxtemp]);
+				this->Trace(result);
 				return 0;
 			}
 
@@ -613,9 +610,13 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 			if (!this->NoExtSensor)
 			{
 				pfcstate->SensorName[idxtemp]= this->gSensorNames[idxtemp];
-				if (!ReadByteFromEC(TP_ECOFFSET_TEMP1 + i, &pfcstate->Sensors[idxtemp]))
+				int result = ReadByteFromEC(TP_ECOFFSET_TEMP1 + i, &pfcstate->Sensors[idxtemp]);
+				if (result != 1)
 				{
 					this->Trace("failed to read TEMP1 byte from EC");
+					this->Trace(i);
+					this->Trace(this->gSensorNames[idxtemp]);
+					this->Trace(result);
 					return 0;
 				}
 				if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];

@@ -125,4 +125,8 @@
   <ItemGroup>
     <Text Include="res\xp-manifest.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="TVicPort.dll" />
+    <CopyFileToFolders Include="TPFanControl.ini" />
+  </ItemGroup>
 </Project>

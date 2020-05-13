@@ -9,7 +9,7 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
     hInstRes = instance;
     hInstApp = instance;
 
-	HANDLE hLock = CreateMutex(NULL,FALSE,"TPFanControlMutex01");
+	HANDLE hLock = CreateMutex(NULL, FALSE, "TPFanControlMutex01");
 
     if (hLock == NULL)
     {
@@ -18,7 +18,7 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
 	    return ec;
     }
 
-    if(WAIT_OBJECT_0 != WaitForSingleObject(hLock,0))
+    if(WAIT_OBJECT_0 != WaitForSingleObject(hLock, 0))
     {
         DWORD ec = GetLastError();
         ShowError(ec, "program or service already running");
@@ -85,7 +85,6 @@ int APIENTRY WinMain(HINSTANCE instance, HINSTANCE, LPSTR aArgs, int)
     else
     {
         WorkerThread(NULL);
-        return 0;
     }
 
     return 0;
@@ -108,7 +107,7 @@ DWORD InstallService(bool quiet)
 
     char ExePath[MAX_PATH];
     GetModuleFileName(NULL, ExePath, sizeof(ExePath));
-    sprintf_s(ExePath+strlen(ExePath),sizeof(ExePath)-strlen(ExePath)," -s");
+    sprintf_s(ExePath + strlen(ExePath), sizeof(ExePath) - strlen(ExePath), " -s");
     // sprintf_s(ExePath,sizeof(ExePath)," -s");
 
     SC_HANDLE svc = CreateService(SCMgr, g_ServiceName, g_ServiceName, SERVICE_ALL_ACCESS,
@@ -148,6 +147,7 @@ DWORD UninstallService(bool quiet)
         CloseServiceHandle(SCMgr);
         return ec;
     }
+
     CloseServiceHandle(hdl);
     CloseServiceHandle(SCMgr);
     return 0;
@@ -173,6 +173,7 @@ void ShowError(DWORD ec, const char *description)
     LocalFree(msgBuf);
     LocalFree(dispBuf);
 }
+
 void ShowMessage(const char *title, const char *description) 
 {
     MessageBox(NULL, description, title, MB_OK);
@@ -208,7 +209,6 @@ VOID WINAPI Handler(DWORD fdwControl)
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
         StopWorkerThread();
-                
         g_SvcStatus.dwCurrentState   = SERVICE_STOPPED;
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
@@ -233,12 +233,7 @@ void StopWorkerThread()
 
 void WorkerThread(void *dummy)
 {
-	char curdir[MAX_PATH]= "";
-
-    //Zeit, um den Debugger an den Prozess zu hängen
-    //   #ifdef _DEBUG
-    //   Sleep(30000);
-    //   #endif
+    char curdir[MAX_PATH]= "";
 
     hInstRes=GetModuleHandle(NULL);
     hInstApp=hInstRes;
