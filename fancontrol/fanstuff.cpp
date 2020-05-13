@@ -594,7 +594,8 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 				this->Trace(i);
 				this->Trace(this->gSensorNames[idxtemp]);
 				this->Trace(result);
-				return 0;
+				if (this->gSensorNames[idxtemp] == "cpu")
+					return 0;
 			}
 
 			if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
@@ -617,7 +618,8 @@ int FANCONTROL::ReadEcRaw(FCSTATE *pfcstate)
 					this->Trace(i);
 					this->Trace(this->gSensorNames[idxtemp]);
 					this->Trace(result);
-					return 0;
+					if (this->gSensorNames[idxtemp] == "cpu")
+						return 0;
 				}
 				if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
 			}
