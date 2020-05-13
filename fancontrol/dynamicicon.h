@@ -12,9 +12,9 @@ class CDynamicIcon {
       HICON GetHIcon();
     private:
 
-      HDC      memDC1_; 
-      HDC      memDC2_;  
-      HBITMAP  oldBmp_1; 
+      HDC      memDC1_;
+      HDC      memDC2_;
+      HBITMAP  oldBmp_1;
       HBITMAP  oldBmp_2;
       HBITMAP  iconBmp_;
       HBITMAP  iconMaskBmp_;

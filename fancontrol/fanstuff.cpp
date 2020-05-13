@@ -606,12 +606,10 @@ int FANCONTROL::ReadEcRaw(FCSTATE* pfcstate)
             int result = ReadByteFromEC(TP_ECOFFSET_TEMP0 + i, &pfcstate->Sensors[idxtemp]);
             if (result != 1)
             {
-                this->Trace("failed to read TEMP0 byte from EC");
-                this->TraceInt(i);
+                
+                this->Trace("failed to read TEMP0 byte from EC of sensor: ");
                 this->Trace(this->gSensorNames[idxtemp]);
-                this->TraceInt(result);
-                if (this->gSensorNames[idxtemp] == "cpu")
-                    return 0;
+                if (this->gSensorNames[idxtemp] == "cpu") return 0;
             }
 
             if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
@@ -630,12 +628,9 @@ int FANCONTROL::ReadEcRaw(FCSTATE* pfcstate)
                 int result = ReadByteFromEC(TP_ECOFFSET_TEMP1 + i, &pfcstate->Sensors[idxtemp]);
                 if (result != 1)
                 {
-                    this->Trace("failed to read TEMP1 byte from EC");
-                    this->TraceInt(i);
+                    this->Trace("failed to read TEMP1 byte from EC of sensor: ");
                     this->Trace(this->gSensorNames[idxtemp]);
-                    this->TraceInt(result);
-                    if (this->gSensorNames[idxtemp] == "cpu")
-                        return 0;
+                    if (this->gSensorNames[idxtemp] == "cpu") return 0;
                 }
                 if (this->ShowBiasedTemps) pfcstate->Sensors[idxtemp] = pfcstate->Sensors[idxtemp] - this->SensorOffset[idxtemp];
             }

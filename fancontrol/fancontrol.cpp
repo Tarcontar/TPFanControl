@@ -1512,7 +1512,7 @@ void FANCONTROL::ProcessTextIcons(void)
     }
     else
     {
-        icon = 11;   // blue
+        icon = 22;   // hell grün
         for (int i = 0; i < ARRAYMAX(this->IconLevels); i++)
         {
             if (this->MaxTemp >= this->IconLevels[i])

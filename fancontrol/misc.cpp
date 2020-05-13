@@ -688,7 +688,7 @@ BOOL FANCONTROL::IsMinimized(void)
 //-------------------------------------------------------------------------
 //  show trace output in lower window part
 //-------------------------------------------------------------------------
-char buf[1] = "";
+char buf[10] = "";
 void FANCONTROL::TraceInt(int num)
 {
     _itoa_s(num, buf, 10);
