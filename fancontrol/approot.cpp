@@ -201,20 +201,14 @@ VOID WINAPI ServiceMain(DWORD aArgc, LPTSTR* aArgv)
 
 VOID WINAPI Handler(DWORD fdwControl)
 {
-    switch (fdwControl)
+    if (fdwControl == SERVICE_CONTROL_STOP)
     {
-    case SERVICE_CONTROL_STOP:
         g_SvcStatus.dwCurrentState = SERVICE_STOP_PENDING;
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
 
         StopWorkerThread();
         g_SvcStatus.dwCurrentState = SERVICE_STOPPED;
         SetServiceStatus(g_SvcHandle, &g_SvcStatus);
-
-        break;
-
-    default:
-        break;
     }
 }
 
@@ -272,29 +266,29 @@ void WorkerThread(void* dummy)
         }
         ::Sleep(1000);
     }
-    if (ok)
-    {
-        HardAccess = TestHardAccess();
-        SetHardAccess(NewHardAccess);
-        HardAccess = TestHardAccess();
 
-        FANCONTROL fc(hInstApp);
-
-        g_dialogWnd = fc.GetDialogWnd();
-
-        fc.ProcessDialog();
-
-        ::PostMessage(g_dialogWnd, WM_COMMAND, 5020, 0);
-        CloseTVicPort();
-    }
-    else
+    if (!ok)
     {
         ::MessageBox(HWND_DESKTOP,
             "Error during initialization of Port Driver.\r\n"
             "(tvicport.sys missing in app folder or failed to load)",
             "Fan Control",
             MB_ICONERROR | MB_OK | MB_SETFOREGROUND);
+        return;
     }
+
+    HardAccess = TestHardAccess();
+    SetHardAccess(NewHardAccess);
+    HardAccess = TestHardAccess();
+
+    FANCONTROL fc(hInstApp);
+
+    g_dialogWnd = fc.GetDialogWnd();
+
+    fc.ProcessDialog();
+
+    ::PostMessage(g_dialogWnd, WM_COMMAND, 5020, 0);
+    CloseTVicPort();
 }
 
 void debug(const char* msg)

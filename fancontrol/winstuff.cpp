@@ -66,8 +66,6 @@ void MUTEXSEM::Unlock()
     int ok = ::ReleaseMutex(this->hmux);
 }
 
-
-
 //////////////////////////////////////////////////////////////////////////////
 //                                                                          // 
 //   TASKBARICON                                                            // 

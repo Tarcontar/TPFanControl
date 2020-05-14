@@ -668,8 +668,6 @@ void FANCONTROL::CurrentTimeLocalized(char* result, size_t sizeof_result)
     // strncat_s(result,sizeof_result, otime, sizeof_result-strlen(result)-1);
 }
 
-
-
 //-------------------------------------------------------------------------
 //  
 //-------------------------------------------------------------------------
@@ -682,9 +680,6 @@ BOOL FANCONTROL::IsMinimized(void)
     return wp.showCmd == SW_SHOWMINIMIZED;
 }
 
-
-
-
 //-------------------------------------------------------------------------
 //  show trace output in lower window part
 //-------------------------------------------------------------------------
@@ -694,7 +689,6 @@ void FANCONTROL::TraceInt(int num)
     _itoa_s(num, buf, 10);
     Trace(buf);
 }
-
 
 void FANCONTROL::Trace(const char* text)
 {

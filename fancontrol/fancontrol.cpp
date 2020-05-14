@@ -132,7 +132,6 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
     this->IconLevels[1] = 55;    // orange icon level
     this->IconLevels[2] = 60;    // red icon level
 
-
     // initial default "smart" table
     setzero(this->SmartLevels, sizeof(this->SmartLevels));
     this->SmartLevels[i].temp = 50;  this->SmartLevels[i].fan = 0; i++;
@@ -161,7 +160,6 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
     this->SmartLevels2[i].temp2 = 70;  this->SmartLevels2[i].fan2 = 128; i++;
     this->SmartLevels2[i].temp2 = -1;  this->SmartLevels2[i].fan2 = 0; i++;
 
-
     // code title3
     char bias = 100;
     for (int _i = 0; _i < 111; _i++)
@@ -182,38 +180,6 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
         case 11: this->Title3[11] = bias + 5; break;     //i
         case 12: this->Title3[12] = bias + 20; break;    //x
         case 13: this->Title3[13] = 32; break;           //blank
-/*      case 14 : this->Title3[14]=32; break;           //blank
-        case 15 : this->Title3[15]=32; break;           //blank
-        case 16 : this->Title3[16]=32; break;           //blank
-        case 17 : this->Title3[17]=32; break;           //blank
-        case 18 : this->Title3[18]=32; break;           //blank
-        case 19 : this->Title3[19]=bias - 58; break;    //*
-        case 20 : this->Title3[20]=bias - 58; break;    //*
-        case 21 : this->Title3[21]=bias + 2; break;     //f
-        case 22 : this->Title3[22]=bias + 14; break;    //r
-        case 23 : this->Title3[23]=bias + 1; break;     //e
-        case 24 : this->Title3[24]=bias + 1; break;     //e
-        case 25 : this->Title3[25]=bias - 68 ; break;   //blank
-        case 26 : this->Title3[26]=bias + 2; break;     //f
-        case 27 : this->Title3[27]=bias + 11; break;    //o
-        case 28 : this->Title3[28]=bias + 14; break;    //r
-        case 29 : this->Title3[29]=bias - 68 ; break;   //blank
-        case 30 : this->Title3[30]=bias + 12; break;    //p
-        case 31 : this->Title3[31]=bias + 14; break;    //r
-        case 32 : this->Title3[32]=bias + 5; break;     //i
-        case 33 : this->Title3[33]=bias + 18; break;    //v
-        case 34 : this->Title3[34]=bias - 3 ; break;    //a
-        case 35 : this->Title3[35]=bias + 16; break;    //t
-        case 36 : this->Title3[36]=bias + 1; break;     //e
-        case 37 : this->Title3[37]=bias - 68 ; break;   //blank
-        case 38 : this->Title3[38]=bias + 17; break;    //u
-        case 39 : this->Title3[39]=bias + 15; break;    //s
-        case 40 : this->Title3[40]=bias + 1; break;     //e
-        case 41 : this->Title3[41]=bias - 58; break;    //*
-        case 42 : this->Title3[42]=bias - 58; break;    //*
-    //  case 14 : this->Title3[14]=115-1; break;
-    //  case 15 : this->Title3[15]=115-1; break;
-*/
         }
 
         // code Title4 http://www.staff.uni-marburg.de/~schmitzr/donate.html
@@ -381,18 +347,11 @@ FANCONTROL::FANCONTROL(HINSTANCE hinstapp)
     if (this->MinimizeToSysTray)
     {
         // da liegt der ICON-Hund begraben
-        if (!this->ShowTempIcon)
-        {
-            this->pTaskbarIcon = new TASKBARICON(this->hwndDialog, 10, "TPFanControl");
-        }
-        else
-        {
-            this->pTaskbarIcon = NULL;
-        }
+        if (!this->ShowTempIcon) this->pTaskbarIcon = new TASKBARICON(this->hwndDialog, 10, "TPFanControl");
+        else this->pTaskbarIcon = NULL;
     }
 
     // read current fan control status and set mode buttons accordingly 
-
     this->CurrentMode = this->ActiveMode;
 
     this->ModeToDialog(this->CurrentMode);
@@ -509,7 +468,6 @@ void FANCONTROL::ShowAllToDialog(int show)
     ::SendDlgItemMessage(this->hwndDialog, 7002, BM_SETCHECK, show == 0, 0L);
 }
 
-
 //-------------------------------------------------------------------------
 //  process main dialog
 //-------------------------------------------------------------------------
@@ -585,7 +543,6 @@ ULONG CALLBACK FANCONTROL::BaseDlgProc(HWND hwnd, ULONG msg, WPARAM mp1, LPARAM 
 
     return rc;
 }
-
 
 
 //-------------------------------------------------------------------------

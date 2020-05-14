@@ -211,6 +211,7 @@ protected:
     int ReadEcStatus(FCSTATE* pfcstate);
     int ReadEcRaw(FCSTATE* pfcstate);
     int HandleData();
+    void PrintModeChange(char *obuf);
     int SmartControl();
     bool SetFan(const char* source, int level, BOOL final = false);
     int SetHdw(const char* source, int hdwctrl, int HdwOffset, int AnyWayBit);

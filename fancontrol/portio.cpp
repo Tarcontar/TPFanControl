@@ -112,32 +112,21 @@ int FANCONTROL::ReadByteFromEC(int offset, char* pdata)
 
     SetReadPosition(EC_DATAPORT, offset);
 
-    if (!(data & EC_OUTPUT_BUFF_FULL) && !WaitForFullOutputBuffer()) return -1;
+    if (!(data & EC_OUTPUT_BUFF_FULL) && !WaitForFullOutputBuffer()) return 0;
 
     *pdata = ReadPort(EC_DATAPORT);
-
-    //if (logbuf_verbosity > 0) sprintf(logbuf + strlen(logbuf), "readec: offset= %x, data= %02x\n", offset, *pdata);
     return 1;
 }
 
 int FANCONTROL::WriteByteToEC(int offset, char NewData)
 {
     WaitForEmptyBuffers();
-    if (!WaitForEmptyOutputBuffer())
-    {
-        return 0;
-    }
-    //if (!PortReady()) return 0;
+    if (!WaitForEmptyOutputBuffer()) return 0;
 
     WritePort(EC_CTRLPORT, EC_CTRLPORT_WRITE);
     WaitForEmptyBuffers();
 
     SetWritePosition(EC_DATAPORT, offset);
-
-    /*if (!WaitForEmptyBuffers())
-    {
-        return 0;
-    }*/
 
     WritePort(EC_DATAPORT, NewData);
 
