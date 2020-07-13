@@ -38,7 +38,7 @@
 
 
 
-#define FANCONTROLVERSION "0.70 multiHotKey, for ThinkPad P53"
+#define FANCONTROLVERSION "0.71 multiHotKey, for ThinkPad P53"
 
 #define WM__DISMISSDLG WM_USER+5
 #define WM__GETDATA WM_USER+6
